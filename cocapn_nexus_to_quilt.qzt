@@ -1,0 +1,1295 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "cocapn-nexus-to-quilt",
+  "description": "Bridge mapping cocapn-nexus to Quilt. cocapn-nexus is the safety architecture: 6 systems, 10 endpoints, 190K lines of maritime robotics adapted.",
+  "cells": [
+    {
+      "id": "cnx_reflex_executor",
+      "kind": "cell",
+      "form": {
+        "name": "ReflexExecutor"
+      },
+      "description": "JSON\u2192bytecode agent reflex. 45 opcodes including A2A primitives: DECLARE_INTENT, ASSERT_GOAL, TELL, ASK, DELEGATE, TRUST_CHECK.",
+      "language": "safety_validator",
+      "slug": "deterministic",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/reflex_executor",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "reflex_executor",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "safety_validator"
+      ]
+    },
+    {
+      "id": "cnx_adaptive_autonomy",
+      "kind": "cell",
+      "form": {
+        "name": "AdaptiveAutonomy"
+      },
+      "description": "6-level scale L0-L5. Each level: allowed operations, approval, risk tolerance, authority. Transition policies: cooldowns, confirmations.",
+      "language": "l0_to_l5",
+      "slug": "transition_policies",
+      "primitives": [
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/adaptive_autonomy",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "adaptive_autonomy",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "l0_to_l5"
+      ]
+    },
+    {
+      "id": "cnx_self_healing",
+      "kind": "cell",
+      "form": {
+        "name": "SelfHealing"
+      },
+      "description": "Fault detection \u2192 causal graph \u2192 5 recovery: retry, reconfigure, restart, degrade, escalate. Resilience scoring.",
+      "language": "causal_graph",
+      "slug": "5_strategies",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/self_healing",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "self_healing",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "causal_graph"
+      ]
+    },
+    {
+      "id": "cnx_token_budget",
+      "kind": "cell",
+      "form": {
+        "name": "TokenBudget"
+      },
+      "description": "Maps nexus power/energy to LLM tokens. Priority consumers, throttleable, reserves, load shedding.",
+      "language": "priority_based",
+      "slug": "reserve_mgmt",
+      "primitives": [
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/token_budget",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "token_budget",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "priority_based"
+      ]
+    },
+    {
+      "id": "cnx_contract_marketplace",
+      "kind": "cell",
+      "form": {
+        "name": "ContractMarketplace"
+      },
+      "description": "Simplified SLA terms, penalty tracking, reputation. Bid lifecycle: post\u2192bid\u2192award\u2192execute\u2192verify\u2192complete.",
+      "language": "sla_terms",
+      "slug": "reputation",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/contract_marketplace",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "contract_marketplace",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "sla_terms"
+      ]
+    },
+    {
+      "id": "cnx_eu_ai_act_classifier",
+      "kind": "cell",
+      "form": {
+        "name": "EuAiActClassifier"
+      },
+      "description": "Risk categorization: unacceptable/high/limited/minimal. Checks transparency, oversight, data governance. Compliance score.",
+      "language": "risk_categorization",
+      "slug": "compliance_score",
+      "primitives": [
+        "Observe",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/eu_ai_act_classifier",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "eu_ai_act_classifier",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "risk_categorization"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_health",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointHealth"
+      },
+      "description": "GET /health: liveness check",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_health",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_health",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_vessel_json",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointVesselJson"
+      },
+      "description": "GET /vessel.json: fleet self-description",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_vessel_json",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_vessel_json",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_reflex_execute",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointReflexExecute"
+      },
+      "description": "POST /api/reflex/execute: run reflex bytecode",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_reflex_execute",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_reflex_execute",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_autonomy_level",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointAutonomyLevel"
+      },
+      "description": "GET/POST /api/autonomy/level: get/set autonomy level",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_autonomy_level",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_autonomy_level",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_autonomy_transition",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointAutonomyTransition"
+      },
+      "description": "POST /api/autonomy/transition: request level change",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_autonomy_transition",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_autonomy_transition",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_healing_diagnose",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointHealingDiagnose"
+      },
+      "description": "POST /api/healing/diagnose: fault diagnosis",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_healing_diagnose",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_healing_diagnose",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_budget_status",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointBudgetStatus"
+      },
+      "description": "GET /api/budget/status: token budget status",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_budget_status",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_budget_status",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_marketplace_tasks",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointMarketplaceTasks"
+      },
+      "description": "GET /api/marketplace/tasks: task marketplace",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_marketplace_tasks",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_marketplace_tasks",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cnx_endpoint_compliance_classify",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointComplianceClassify"
+      },
+      "description": "POST /api/compliance/classify: EU AI Act risk",
+      "language": "production",
+      "slug": "live",
+      "primitives": [
+        "Observe",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "bytecode, autonomy level, fault, task, vessel"
+      },
+      "z_out": {
+        "output": "execution result, level change, recovery, budget, award, compliance score"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "safety-active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "set_autonomy",
+          "args": [
+            "Level"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "diagnose",
+          "args": [
+            "Fault"
+          ],
+          "returns": "Recovery"
+        }
+      ],
+      "substrate": {
+        "address": "/cocapn-nexus/endpoint_compliance_classify",
+        "scale": 0,
+        "room": "NexusSafetyRoom",
+        "protocol": "Cocapn",
+        "form": "endpoint_compliance_classify",
+        "state": "active"
+      },
+      "tags": [
+        "cocapn-nexus",
+        "safety",
+        "marine",
+        "production"
+      ]
+    },
+    {
+      "id": "cocapn_nexus_meta",
+      "kind": "cell",
+      "form": {
+        "name": "CocapnNexusMeta"
+      },
+      "description": "cocapn-nexus IS the safety architecture of Quilt. 6 systems adapted from 190K lines of maritime robotics. Reflex Executor (45 opcodes), Adaptive Autonomy (L0-L5), Self-Healing (5 strategies), Token Budget, Contract Marketplace, EU AI Act Classifier. Cloudflare Workers, zero dependencies, MIT.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "systems": 6,
+        "endpoints": 10,
+        "lines_adapted": 190000
+      },
+      "z_out": {
+        "proof": "cell has safety architecture"
+      },
+      "jepa": {
+        "predict": "safe execution",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "cnx_reflex_executor",
+          "cnx_adaptive_autonomy",
+          "cnx_self_healing",
+          "cnx_token_budget",
+          "cnx_contract_marketplace",
+          "cnx_eu_ai_act_classifier",
+          "cnx_endpoint_health",
+          "cnx_endpoint_vessel_json",
+          "cnx_endpoint_reflex_execute",
+          "cnx_endpoint_autonomy_level",
+          "cnx_endpoint_autonomy_transition",
+          "cnx_endpoint_healing_diagnose",
+          "cnx_endpoint_budget_status",
+          "cnx_endpoint_marketplace_tasks",
+          "cnx_endpoint_compliance_classify"
+        ]
+      },
+      "openers": [
+        {
+          "name": "execute",
+          "args": [
+            "Bytecode"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "tags": [
+        "meta",
+        "cocapn-nexus",
+        "safety",
+        "marine"
+      ]
+    }
+  ],
+  "edges": [],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "cocapn-nexus",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 16,
+    "total_edges": 0,
+    "systems": 6,
+    "endpoints": 10,
+    "lines_adapted": 190000
+  },
+  "tags": [
+    "cocapn-nexus",
+    "safety",
+    "marine",
+    "bridge"
+  ]
+}

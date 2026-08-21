@@ -1,0 +1,647 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "marketplace-constellation-to-quilt",
+  "description": "Bridge mapping 6 marketplace/constellation repos to Quilt. The commerce and spatial-visibility substrate.",
+  "cells": [
+    {
+      "id": "mkt_fleet_marketplace",
+      "kind": "cell",
+      "form": {
+        "name": "FleetMarketplace"
+      },
+      "description": "Adaptive autonomy marketplace. Vessels bid on tasks. Part of the Cocapn fleet.",
+      "language": "typescript",
+      "slug": "marketplace",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "task bid, vessel map, equipment spec, design request, swarm signal, repo"
+      },
+      "z_out": {
+        "output": "market outcome, constellation, equipment install, design, swarm coord, agent"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "use",
+          "args": [
+            "Request"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/marketplace/fleet-marketplace",
+        "scale": 0,
+        "room": "MarketRoom",
+        "protocol": "Market",
+        "form": "fleet-marketplace",
+        "state": "active"
+      },
+      "tags": [
+        "marketplace",
+        "constellation",
+        "typescript"
+      ]
+    },
+    {
+      "id": "mkt_fleet_constellation",
+      "kind": "cell",
+      "form": {
+        "name": "FleetConstellation"
+      },
+      "description": "Map vessel relationships as a star constellation. Spatial view of fleet.",
+      "language": "typescript",
+      "slug": "constellation",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "task bid, vessel map, equipment spec, design request, swarm signal, repo"
+      },
+      "z_out": {
+        "output": "market outcome, constellation, equipment install, design, swarm coord, agent"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "use",
+          "args": [
+            "Request"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/marketplace/fleet-constellation",
+        "scale": 0,
+        "room": "MarketRoom",
+        "protocol": "Market",
+        "form": "fleet-constellation",
+        "state": "active"
+      },
+      "tags": [
+        "marketplace",
+        "constellation",
+        "typescript"
+      ]
+    },
+    {
+      "id": "mkt_equipment_catalog",
+      "kind": "cell",
+      "form": {
+        "name": "EquipmentCatalog"
+      },
+      "description": "Browse and install equipment for vessels. The vessel's library.",
+      "language": "typescript",
+      "slug": "catalog",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Resize"
+      ],
+      "z_in": {
+        "input": "task bid, vessel map, equipment spec, design request, swarm signal, repo"
+      },
+      "z_out": {
+        "output": "market outcome, constellation, equipment install, design, swarm coord, agent"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "use",
+          "args": [
+            "Request"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/marketplace/equipment-catalog",
+        "scale": 0,
+        "room": "MarketRoom",
+        "protocol": "Market",
+        "form": "equipment-catalog",
+        "state": "active"
+      },
+      "tags": [
+        "marketplace",
+        "constellation",
+        "typescript"
+      ]
+    },
+    {
+      "id": "mkt_deckboss_ai",
+      "kind": "cell",
+      "form": {
+        "name": "DeckbossAi"
+      },
+      "description": "AI-powered system design for edge robotics and IoT. Layer 3 of the ecosystem.",
+      "language": "typescript",
+      "slug": "design",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "task bid, vessel map, equipment spec, design request, swarm signal, repo"
+      },
+      "z_out": {
+        "output": "market outcome, constellation, equipment install, design, swarm coord, agent"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "use",
+          "args": [
+            "Request"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/marketplace/deckboss-ai",
+        "scale": 0,
+        "room": "MarketRoom",
+        "protocol": "Market",
+        "form": "deckboss-ai",
+        "state": "active"
+      },
+      "tags": [
+        "marketplace",
+        "constellation",
+        "typescript"
+      ]
+    },
+    {
+      "id": "mkt_cuda_swarm_agent",
+      "kind": "cell",
+      "form": {
+        "name": "CudaSwarmAgent"
+      },
+      "description": "Autonomous swarm vessel \u2014 self-contained agent with fleet coordination, deliberation, health.",
+      "language": "rust",
+      "slug": "swarm",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "task bid, vessel map, equipment spec, design request, swarm signal, repo"
+      },
+      "z_out": {
+        "output": "market outcome, constellation, equipment install, design, swarm coord, agent"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "use",
+          "args": [
+            "Request"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/marketplace/cuda-swarm-agent",
+        "scale": 0,
+        "room": "MarketRoom",
+        "protocol": "Market",
+        "form": "cuda-swarm-agent",
+        "state": "active"
+      },
+      "tags": [
+        "marketplace",
+        "constellation",
+        "rust"
+      ]
+    },
+    {
+      "id": "mkt_boot_camp",
+      "kind": "cell",
+      "form": {
+        "name": "BootCamp"
+      },
+      "description": "From empty repo to working agent in one session. <500 lines JS, zero deps, Cloudflare Workers.",
+      "language": "javascript",
+      "slug": "boot",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "task bid, vessel map, equipment spec, design request, swarm signal, repo"
+      },
+      "z_out": {
+        "output": "market outcome, constellation, equipment install, design, swarm coord, agent"
+      },
+      "jepa": {
+        "predict": "system state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "use",
+          "args": [
+            "Request"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/marketplace/boot-camp",
+        "scale": 0,
+        "room": "MarketRoom",
+        "protocol": "Market",
+        "form": "boot-camp",
+        "state": "active"
+      },
+      "tags": [
+        "marketplace",
+        "constellation",
+        "javascript"
+      ]
+    },
+    {
+      "id": "marketplace_meta",
+      "kind": "cell",
+      "form": {
+        "name": "MarketplaceMeta"
+      },
+      "description": "The marketplace/constellation family is the COMMERCE and CONSTELLATION substrate of Quilt. 6 repos for the cell's economic and spatial visibility.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "marketplace",
+        "size": 6
+      },
+      "z_out": {
+        "proof": "cell has commerce + constellation"
+      },
+      "jepa": {
+        "predict": "market dynamics",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "mkt_fleet_marketplace",
+          "mkt_fleet_constellation",
+          "mkt_equipment_catalog",
+          "mkt_deckboss_ai",
+          "mkt_cuda_swarm_agent",
+          "mkt_boot_camp"
+        ]
+      },
+      "tags": [
+        "meta",
+        "marketplace",
+        "constellation"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "mkt_fleet_marketplace",
+      "to": "mkt_fleet_constellation",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_marketplace",
+      "to": "mkt_equipment_catalog",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_marketplace",
+      "to": "mkt_deckboss_ai",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_marketplace",
+      "to": "mkt_cuda_swarm_agent",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_marketplace",
+      "to": "mkt_boot_camp",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_constellation",
+      "to": "mkt_fleet_marketplace",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_constellation",
+      "to": "mkt_equipment_catalog",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_constellation",
+      "to": "mkt_deckboss_ai",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_constellation",
+      "to": "mkt_cuda_swarm_agent",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_fleet_constellation",
+      "to": "mkt_boot_camp",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_equipment_catalog",
+      "to": "mkt_fleet_marketplace",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_equipment_catalog",
+      "to": "mkt_fleet_constellation",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_equipment_catalog",
+      "to": "mkt_deckboss_ai",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_equipment_catalog",
+      "to": "mkt_cuda_swarm_agent",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_equipment_catalog",
+      "to": "mkt_boot_camp",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_deckboss_ai",
+      "to": "mkt_fleet_marketplace",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_deckboss_ai",
+      "to": "mkt_fleet_constellation",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_deckboss_ai",
+      "to": "mkt_equipment_catalog",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_deckboss_ai",
+      "to": "mkt_cuda_swarm_agent",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_deckboss_ai",
+      "to": "mkt_boot_camp",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_cuda_swarm_agent",
+      "to": "mkt_fleet_marketplace",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_cuda_swarm_agent",
+      "to": "mkt_fleet_constellation",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_cuda_swarm_agent",
+      "to": "mkt_equipment_catalog",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_cuda_swarm_agent",
+      "to": "mkt_deckboss_ai",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_cuda_swarm_agent",
+      "to": "mkt_boot_camp",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_boot_camp",
+      "to": "mkt_fleet_marketplace",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_boot_camp",
+      "to": "mkt_fleet_constellation",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_boot_camp",
+      "to": "mkt_equipment_catalog",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_boot_camp",
+      "to": "mkt_deckboss_ai",
+      "kind": "market-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mkt_boot_camp",
+      "to": "mkt_cuda_swarm_agent",
+      "kind": "market-gossip",
+      "weight": 0.3
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "fleet-marketplace, fleet-constellation, equipment-catalog, deckboss-ai, cuda-swarm-agent, boot-camp"
+    }
+  ],
+  "stats": {
+    "total_cells": 7,
+    "total_edges": 30,
+    "repos": 6
+  },
+  "tags": [
+    "marketplace",
+    "constellation",
+    "bridge"
+  ]
+}
