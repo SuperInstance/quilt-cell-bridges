@@ -74,6 +74,8 @@ The original seven, straight from the fleet's core:
 | [grand-pattern-rs](https://github.com/SuperInstance/grand-pattern-rs) | Fibonacci dual-direction architecture (12 ports) | `grand_pattern_to_quilt.py` | 412 |
 | [spline-spectral](https://github.com/SuperInstance/spline-spectral) | B-splines as spectral objects | `spline_spectral_to_quilt.py` | 299 |
 
+**Per-bridge deep dives:** [vessel](docs/bridges/vessel.md) · [chart-room](docs/bridges/chart-room.md) · [slackwater-tminus](docs/bridges/slackwater-tminus.md) · [hermes-home](docs/bridges/hermes-home.md) · [spatial-registry](docs/bridges/spatial-registry.md) · [grand-pattern](docs/bridges/grand-pattern.md) · [spline-spectral](docs/bridges/spline-spectral.md)
+
 **50 bridges are live in total** — the seven above plus family bridges that port whole cohorts of repos (the `agent-*` family: 81 repos; `cocapn-*`: 77; `conservation-*`: 60; `constraint-*`: 47; and more), plus single-system ports like `wesley_to_quilt.py`, `othismos_reef_to_quilt.py`, `colony_cell_to_quilt.py`, and `quilt_ai_to_quilt.py`. Every one, catalogued with its source family and purpose, lives in **[docs/bridge-catalog.md](docs/bridge-catalog.md)**.
 
 ## Directory map
@@ -81,10 +83,17 @@ The original seven, straight from the fleet's core:
 ```
 quilt-cell-bridges/
 ├── assets/
-│   └── hero.jpg                     # the quilt, viewed from above
+│   ├── hero.jpg                     # the quilt, viewed from above
+│   └── images/                      # gallery renders
+│       ├── gallery-quilt.jpg
+│       └── gallery-flux-deck.jpg
 ├── docs/
 │   ├── architecture.md              # the .qzt format, cell anatomy, 3-views contract
-│   └── bridge-catalog.md            # all 50 bridges, by family
+│   ├── bridge-catalog.md            # all 50 bridges, by family
+│   ├── adding-a-bridge.md           # the porting template for the next bridge
+│   └── bridges/                     # per-bridge deep dives
+│       ├── vessel.md · chart-room.md · slackwater-tminus.md · hermes-home.md
+│       └── spatial-registry.md · grand-pattern.md · spline-spectral.md
 ├── *_to_quilt.py                    # the bridges themselves
 └── *.qzt                            # emitted cell graphs (17 checked in)
 ```
@@ -117,10 +126,28 @@ Each bridge emits a 4D cell graph (3D space + time), and 3-View Studio renders i
 
 The same data, three openers, one file. That's the whole trick, and the whole point: the migration doesn't flatten the old systems into one view — it keeps every view, because every view was always looking at the same cells.
 
+## Gallery
+
+<p align="center">
+  <img src="assets/images/gallery-quilt.jpg" alt="The quilt viewed whole — the fleet's cells tessellated into one grid" width="560">
+  <br>
+  <em>The quilt, whole — dozens of cells tessellated into one grid.</em>
+</p>
+
+<p align="center">
+  <img src="assets/images/gallery-flux-deck.jpg" alt="A maritime cybernetic quilt deck — instrument-panel cells joined by brass rivets and copper conduits" width="560">
+  <br>
+  <em>The deck of the quilt — instrument-panel cells joined by brass rivets and copper conduits.</em>
+</p>
+
+Live renders beat static art: open the [discovery page](https://superinstance.dev/cell-bridges.html) and pick any system, or load a bridge straight into [3-View Studio](https://superinstance.dev/three-view-studio.html?load=vessel) and flip between TOP / FRONT / SIDE.
+
 ## Documentation
 
 - **[docs/architecture.md](docs/architecture.md)** — the `.qzt` format, cell anatomy, the source-reader → cell-writer bridge pattern, the 3-views rendering contract, and the cell / bridge / ecosystem scale views.
 - **[docs/bridge-catalog.md](docs/bridge-catalog.md)** — all 50 bridges: script, source family, one-line purpose, target cell graph.
+- **[docs/bridges/](docs/bridges/)** — per-bridge deep dives for the original seven: source repo, what the cells mean, verified cell counts, example output.
+- **[docs/adding-a-bridge.md](docs/adding-a-bridge.md)** — the porting template: read → map → emit, region conventions, the 3-views contract, and the pre-commit checklist.
 
 ## Coming next
 
