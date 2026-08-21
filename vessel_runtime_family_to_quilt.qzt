@@ -1,0 +1,855 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "vessel-runtime-family-to-quilt",
+  "description": "Bridge mapping the 7 vessel runtime repos to Quilt. The body of the cell: hardware abstraction, bytecode VM, N-body sim, maritime networking.",
+  "cells": [
+    {
+      "id": "vessel_vessel_constellation",
+      "kind": "cell",
+      "form": {
+        "name": "VesselConstellation"
+      },
+      "description": "N-body gravitational fleet sim. 4 vessels as solar system with leapfrog integration.",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/vessel-constellation",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "vessel-constellation",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "rust"
+      ]
+    },
+    {
+      "id": "vessel_vessel_bridge",
+      "kind": "cell",
+      "form": {
+        "name": "VesselBridge"
+      },
+      "description": "Hardware abstraction: ESP32, Jetson, Cloud. Marine/Aerial/Industrial/Home/Medical domains.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/vessel-bridge",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "vessel-bridge",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "python"
+      ]
+    },
+    {
+      "id": "vessel_vessel_tuner",
+      "kind": "cell",
+      "form": {
+        "name": "VesselTuner"
+      },
+      "description": "AutoKernel for the fleet: profile, benchmark, optimize.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/vessel-tuner",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "vessel-tuner",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "typescript"
+      ]
+    },
+    {
+      "id": "vessel_deckboss_net",
+      "kind": "cell",
+      "form": {
+        "name": "DeckbossNet"
+      },
+      "description": "Maritime reliable messaging. At-least-once with idempotency. Designed for VHF/satellite blackouts.",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "GC"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/deckboss-net",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "deckboss-net",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "rust"
+      ]
+    },
+    {
+      "id": "vessel_nexus_edge_runtime",
+      "kind": "cell",
+      "form": {
+        "name": "NexusEdgeRuntime"
+      },
+      "description": "Bytecode VM (32 ops, 64KB), INCREMENTS trust engine, 4-tier safety, intent compiler.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/nexus-edge-runtime",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "nexus-edge-runtime",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "python"
+      ]
+    },
+    {
+      "id": "vessel_hardware_adapter",
+      "kind": "cell",
+      "form": {
+        "name": "HardwareAdapter"
+      },
+      "description": "Pluggable JSON heartbeat schemas for any board \u2014 auto-generates vessel interface.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/hardware-adapter",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "hardware-adapter",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "typescript"
+      ]
+    },
+    {
+      "id": "vessel_jetsonclaw1_vessel",
+      "kind": "cell",
+      "form": {
+        "name": "Jetsonclaw1Vessel"
+      },
+      "description": "Vessel on NVIDIA Jetson. Git-Agent Vessel \u2014 Lucineer realm specialist.",
+      "language": "cuda",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "physical sensors / hardware signals"
+      },
+      "z_out": {
+        "output": "actuator commands / vessel actions"
+      },
+      "jepa": {
+        "predict": "next sensor state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "act",
+          "args": [
+            "Action"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "sense",
+          "args": [
+            "Sensor"
+          ],
+          "returns": "Reading"
+        }
+      ],
+      "substrate": {
+        "address": "/vessel-runtime/JetsonClaw1-vessel",
+        "scale": 0,
+        "room": "VesselRoom",
+        "protocol": "Hardware",
+        "form": "JetsonClaw1-vessel",
+        "state": "active"
+      },
+      "tags": [
+        "vessel-runtime",
+        "hardware",
+        "body",
+        "cuda"
+      ]
+    },
+    {
+      "id": "vessel_runtime_meta",
+      "kind": "cell",
+      "form": {
+        "name": "VesselRuntimeMeta"
+      },
+      "description": "The vessel runtime family IS the body of the cell. 7 repos that turn a cell into something that can act in the physical world. From bytecode VM to N-body fleet sim to maritime networking. The cell has a body.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "vessel-runtime",
+        "size": 7
+      },
+      "z_out": {
+        "proof": "cell has a body"
+      },
+      "jepa": {
+        "predict": "vessel = cell body",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "vessel_vessel_constellation",
+          "vessel_vessel_bridge",
+          "vessel_vessel_tuner",
+          "vessel_deckboss_net",
+          "vessel_nexus_edge_runtime",
+          "vessel_hardware_adapter",
+          "vessel_jetsonclaw1_vessel"
+        ]
+      },
+      "openers": [
+        {
+          "name": "deploy",
+          "args": [
+            "Vessel"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "profile",
+          "args": [
+            "Vessel"
+          ],
+          "returns": "Profile"
+        }
+      ],
+      "tags": [
+        "meta",
+        "vessel-runtime",
+        "body"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "vessel_vessel_constellation",
+      "to": "vessel_vessel_bridge",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_constellation",
+      "to": "vessel_vessel_tuner",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_constellation",
+      "to": "vessel_deckboss_net",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_constellation",
+      "to": "vessel_nexus_edge_runtime",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_constellation",
+      "to": "vessel_hardware_adapter",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_constellation",
+      "to": "vessel_jetsonclaw1_vessel",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_bridge",
+      "to": "vessel_vessel_constellation",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_bridge",
+      "to": "vessel_vessel_tuner",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_bridge",
+      "to": "vessel_deckboss_net",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_bridge",
+      "to": "vessel_nexus_edge_runtime",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_bridge",
+      "to": "vessel_hardware_adapter",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_bridge",
+      "to": "vessel_jetsonclaw1_vessel",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_tuner",
+      "to": "vessel_vessel_constellation",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_tuner",
+      "to": "vessel_vessel_bridge",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_tuner",
+      "to": "vessel_deckboss_net",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_tuner",
+      "to": "vessel_nexus_edge_runtime",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_tuner",
+      "to": "vessel_hardware_adapter",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_vessel_tuner",
+      "to": "vessel_jetsonclaw1_vessel",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_deckboss_net",
+      "to": "vessel_vessel_constellation",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_deckboss_net",
+      "to": "vessel_vessel_bridge",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_deckboss_net",
+      "to": "vessel_vessel_tuner",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_deckboss_net",
+      "to": "vessel_nexus_edge_runtime",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_deckboss_net",
+      "to": "vessel_hardware_adapter",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_deckboss_net",
+      "to": "vessel_jetsonclaw1_vessel",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_nexus_edge_runtime",
+      "to": "vessel_vessel_constellation",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_nexus_edge_runtime",
+      "to": "vessel_vessel_bridge",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_nexus_edge_runtime",
+      "to": "vessel_vessel_tuner",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_nexus_edge_runtime",
+      "to": "vessel_deckboss_net",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_nexus_edge_runtime",
+      "to": "vessel_hardware_adapter",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_nexus_edge_runtime",
+      "to": "vessel_jetsonclaw1_vessel",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_hardware_adapter",
+      "to": "vessel_vessel_constellation",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_hardware_adapter",
+      "to": "vessel_vessel_bridge",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_hardware_adapter",
+      "to": "vessel_vessel_tuner",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_hardware_adapter",
+      "to": "vessel_deckboss_net",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_hardware_adapter",
+      "to": "vessel_nexus_edge_runtime",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_hardware_adapter",
+      "to": "vessel_jetsonclaw1_vessel",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_jetsonclaw1_vessel",
+      "to": "vessel_vessel_constellation",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_jetsonclaw1_vessel",
+      "to": "vessel_vessel_bridge",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_jetsonclaw1_vessel",
+      "to": "vessel_vessel_tuner",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_jetsonclaw1_vessel",
+      "to": "vessel_deckboss_net",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_jetsonclaw1_vessel",
+      "to": "vessel_nexus_edge_runtime",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "vessel_jetsonclaw1_vessel",
+      "to": "vessel_hardware_adapter",
+      "kind": "vessel-gossip",
+      "weight": 0.4
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "vessel-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 8,
+    "total_edges": 42,
+    "repos": 7
+  },
+  "tags": [
+    "vessel-runtime",
+    "body",
+    "hardware",
+    "bridge"
+  ]
+}

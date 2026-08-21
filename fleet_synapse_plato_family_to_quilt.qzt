@@ -1,0 +1,1005 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "synapse-plato-family-to-quilt",
+  "description": "Bridge mapping 8 synapse+PLATO+sandbox repos to Quilt. The synapse: routing, change detection, classroom, safe testing.",
+  "cells": [
+    {
+      "id": "syn_fleet_radar",
+      "kind": "cell",
+      "form": {
+        "name": "FleetRadar"
+      },
+      "description": "Fleet-wide change detection: monitor all vessels for mutations.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/fleet-radar",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "fleet-radar",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "typescript"
+      ]
+    },
+    {
+      "id": "syn_fleet_synapse",
+      "kind": "cell",
+      "form": {
+        "name": "FleetSynapse"
+      },
+      "description": "High-speed inter-vessel message routing and signal amplification.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/fleet-synapse",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "fleet-synapse",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "typescript"
+      ]
+    },
+    {
+      "id": "syn_plato_vessel_technician",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoVesselTechnician"
+      },
+      "description": "Deckboss \u2014 marine/industrial technician agent. Voice-first, hands-busy.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/plato-vessel-technician",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "plato-vessel-technician",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "?"
+      ]
+    },
+    {
+      "id": "syn_plato_vessel_educational",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoVesselEducational"
+      },
+      "description": "Student + instructor agent for PLATO-enabled IoT classrooms.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/plato-vessel-educational",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "plato-vessel-educational",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "?"
+      ]
+    },
+    {
+      "id": "syn_plato_vessel_rapid_prototype",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoVesselRapidPrototype"
+      },
+      "description": "Product developer iteration loop: describe \u2192 get BOM, wiring, code.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/plato-vessel-rapid-prototype",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "plato-vessel-rapid-prototype",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "?"
+      ]
+    },
+    {
+      "id": "syn_purplepincher_shell_library",
+      "kind": "cell",
+      "form": {
+        "name": "PurplepincherShellLibrary"
+      },
+      "description": "Agent/vessel separation for context compaction. Agent = thinking, Vessel = acting, PLATO = memory.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC",
+        "Move",
+        "Resize"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/purplepincher-shell-library",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "purplepincher-shell-library",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "python"
+      ]
+    },
+    {
+      "id": "syn_branch_sandbox",
+      "kind": "cell",
+      "form": {
+        "name": "BranchSandbox"
+      },
+      "description": "Isolated branch environments for testing vessel mutations safely.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Resize",
+        "Move",
+        "Kill",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/branch-sandbox",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "branch-sandbox",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "python"
+      ]
+    },
+    {
+      "id": "syn_api_gateway_1",
+      "kind": "cell",
+      "form": {
+        "name": "ApiGateway1"
+      },
+      "description": "Unified API gateway: single entry point for all fleet vessel APIs.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "routed messages, classroom inputs, sandbox queries"
+      },
+      "z_out": {
+        "output": "delivered messages, learning, isolated tests"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "route",
+          "args": [
+            "Message"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "test",
+          "args": [
+            "Mutation"
+          ],
+          "returns": "Verdict"
+        }
+      ],
+      "substrate": {
+        "address": "/synapse/api-gateway-1",
+        "scale": 1,
+        "room": "SynapseRoom",
+        "protocol": "Synapse",
+        "form": "api-gateway-1",
+        "state": "active"
+      },
+      "tags": [
+        "synapse",
+        "plato",
+        "sandbox",
+        "python"
+      ]
+    },
+    {
+      "id": "synapse_plato_meta",
+      "kind": "cell",
+      "form": {
+        "name": "SynapsePLATOMeta"
+      },
+      "description": "The synapse+PLATO+sandbox family IS the synapse of the cell. 8 repos: fleet-radar (change detection), fleet-synapse (routing), PLATO vessels (technician/educational/rapid-prototype), purplepincher (agent/vessel separation), branch-sandbox (safe testing), api-gateway (unified entry).",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "synapse-plato",
+        "size": 8
+      },
+      "z_out": {
+        "proof": "cell has a synapse"
+      },
+      "jepa": {
+        "predict": "synapse = routing + learning",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.6,
+        "eta": 0.4
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "syn_fleet_radar",
+          "syn_fleet_synapse",
+          "syn_plato_vessel_technician",
+          "syn_plato_vessel_educational",
+          "syn_plato_vessel_rapid_prototype",
+          "syn_purplepincher_shell_library",
+          "syn_branch_sandbox",
+          "syn_api_gateway_1"
+        ]
+      },
+      "tags": [
+        "meta",
+        "synapse",
+        "plato"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_radar",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_fleet_synapse",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_technician",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_educational",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_plato_vessel_rapid_prototype",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_purplepincher_shell_library",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_branch_sandbox",
+      "to": "syn_api_gateway_1",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_fleet_radar",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_fleet_synapse",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_plato_vessel_technician",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_plato_vessel_educational",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_plato_vessel_rapid_prototype",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_purplepincher_shell_library",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "syn_api_gateway_1",
+      "to": "syn_branch_sandbox",
+      "kind": "synapse-gossip",
+      "weight": 0.4
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "plato-*, fleet-radar, fleet-synapse, purplepincher-*, branch-sandbox, api-gateway-1"
+    }
+  ],
+  "stats": {
+    "total_cells": 9,
+    "total_edges": 56,
+    "repos": 8
+  },
+  "tags": [
+    "synapse",
+    "plato",
+    "sandbox",
+    "bridge"
+  ]
+}

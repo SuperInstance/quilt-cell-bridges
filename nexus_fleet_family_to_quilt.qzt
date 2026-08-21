@@ -1,0 +1,595 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "nexus-fleet-family-to-quilt",
+  "description": "Bridge mapping 5 nexus fleet repos to Quilt. The nervous system: edge runtime, registry, simulation, swarm, learning.",
+  "cells": [
+    {
+      "id": "nx_nexus_edge_runtime",
+      "kind": "cell",
+      "form": {
+        "name": "NexusEdgeRuntime"
+      },
+      "description": "Edge runtime: bytecode VM, INCREMENTS trust, 4-tier safety, intent compiler.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "Murmur",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "fleet signals, network events"
+      },
+      "z_out": {
+        "output": "discovery, simulation, learning, routing"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "discover",
+          "args": [],
+          "returns": "List<Node>"
+        },
+        {
+          "name": "simulate",
+          "args": [
+            "Scenario"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "learn",
+          "args": [
+            "Experience"
+          ],
+          "returns": "Policy"
+        }
+      ],
+      "substrate": {
+        "address": "/nexus/nexus-edge-runtime",
+        "scale": 1,
+        "room": "NexusRoom",
+        "protocol": "Nexus",
+        "form": "nexus-edge-runtime",
+        "state": "active"
+      },
+      "tags": [
+        "nexus",
+        "network",
+        "python"
+      ]
+    },
+    {
+      "id": "nx_nexus_node_registry",
+      "kind": "cell",
+      "form": {
+        "name": "NexusNodeRegistry"
+      },
+      "description": "Node registry: discovery, config, lifecycle management for Cocapn fleet.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "Murmur",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "fleet signals, network events"
+      },
+      "z_out": {
+        "output": "discovery, simulation, learning, routing"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "discover",
+          "args": [],
+          "returns": "List<Node>"
+        },
+        {
+          "name": "simulate",
+          "args": [
+            "Scenario"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "learn",
+          "args": [
+            "Experience"
+          ],
+          "returns": "Policy"
+        }
+      ],
+      "substrate": {
+        "address": "/nexus/nexus-node-registry",
+        "scale": 1,
+        "room": "NexusRoom",
+        "protocol": "Nexus",
+        "form": "nexus-node-registry",
+        "state": "active"
+      },
+      "tags": [
+        "nexus",
+        "network",
+        "python"
+      ]
+    },
+    {
+      "id": "nx_nexus_simulation",
+      "kind": "cell",
+      "form": {
+        "name": "NexusSimulation"
+      },
+      "description": "Physics simulation: Monte Carlo scenarios, environment models, sensor noise.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "Murmur",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "fleet signals, network events"
+      },
+      "z_out": {
+        "output": "discovery, simulation, learning, routing"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "discover",
+          "args": [],
+          "returns": "List<Node>"
+        },
+        {
+          "name": "simulate",
+          "args": [
+            "Scenario"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "learn",
+          "args": [
+            "Experience"
+          ],
+          "returns": "Policy"
+        }
+      ],
+      "substrate": {
+        "address": "/nexus/nexus-simulation",
+        "scale": 1,
+        "room": "NexusRoom",
+        "protocol": "Nexus",
+        "form": "nexus-simulation",
+        "state": "active"
+      },
+      "tags": [
+        "nexus",
+        "network",
+        "python"
+      ]
+    },
+    {
+      "id": "nx_nexus_swarm",
+      "kind": "cell",
+      "form": {
+        "name": "NexusSwarm"
+      },
+      "description": "Swarm behaviors: emergence detection, consensus protocols, pheromone trails.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "Murmur",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "fleet signals, network events"
+      },
+      "z_out": {
+        "output": "discovery, simulation, learning, routing"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "discover",
+          "args": [],
+          "returns": "List<Node>"
+        },
+        {
+          "name": "simulate",
+          "args": [
+            "Scenario"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "learn",
+          "args": [
+            "Experience"
+          ],
+          "returns": "Policy"
+        }
+      ],
+      "substrate": {
+        "address": "/nexus/nexus-swarm",
+        "scale": 1,
+        "room": "NexusRoom",
+        "protocol": "Nexus",
+        "form": "nexus-swarm",
+        "state": "active"
+      },
+      "tags": [
+        "nexus",
+        "network",
+        "python"
+      ]
+    },
+    {
+      "id": "nx_nexus_learning",
+      "kind": "cell",
+      "form": {
+        "name": "NexusLearning"
+      },
+      "description": "Reinforcement learning: skill acquisition, experience replay, reward shaping.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "Murmur",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "fleet signals, network events"
+      },
+      "z_out": {
+        "output": "discovery, simulation, learning, routing"
+      },
+      "jepa": {
+        "predict": "next fleet state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "discover",
+          "args": [],
+          "returns": "List<Node>"
+        },
+        {
+          "name": "simulate",
+          "args": [
+            "Scenario"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "learn",
+          "args": [
+            "Experience"
+          ],
+          "returns": "Policy"
+        }
+      ],
+      "substrate": {
+        "address": "/nexus/nexus-learning",
+        "scale": 1,
+        "room": "NexusRoom",
+        "protocol": "Nexus",
+        "form": "nexus-learning",
+        "state": "active"
+      },
+      "tags": [
+        "nexus",
+        "network",
+        "python"
+      ]
+    },
+    {
+      "id": "nexus_meta",
+      "kind": "cell",
+      "form": {
+        "name": "NexusMeta"
+      },
+      "description": "The nexus fleet family IS the nervous system of the cell. 5 repos: edge runtime, node registry, simulation, swarm, learning. The cell discovers, simulates, learns, and routes.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "nexus",
+        "size": 5
+      },
+      "z_out": {
+        "proof": "cell has a nervous system"
+      },
+      "jepa": {
+        "predict": "nexus = cell network",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "nx_nexus_edge_runtime",
+          "nx_nexus_node_registry",
+          "nx_nexus_simulation",
+          "nx_nexus_swarm",
+          "nx_nexus_learning"
+        ]
+      },
+      "tags": [
+        "meta",
+        "nexus",
+        "nervous-system"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "nx_nexus_edge_runtime",
+      "to": "nx_nexus_node_registry",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_edge_runtime",
+      "to": "nx_nexus_simulation",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_edge_runtime",
+      "to": "nx_nexus_swarm",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_edge_runtime",
+      "to": "nx_nexus_learning",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_node_registry",
+      "to": "nx_nexus_edge_runtime",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_node_registry",
+      "to": "nx_nexus_simulation",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_node_registry",
+      "to": "nx_nexus_swarm",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_node_registry",
+      "to": "nx_nexus_learning",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_simulation",
+      "to": "nx_nexus_edge_runtime",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_simulation",
+      "to": "nx_nexus_node_registry",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_simulation",
+      "to": "nx_nexus_swarm",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_simulation",
+      "to": "nx_nexus_learning",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_swarm",
+      "to": "nx_nexus_edge_runtime",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_swarm",
+      "to": "nx_nexus_node_registry",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_swarm",
+      "to": "nx_nexus_simulation",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_swarm",
+      "to": "nx_nexus_learning",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_learning",
+      "to": "nx_nexus_edge_runtime",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_learning",
+      "to": "nx_nexus_node_registry",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_learning",
+      "to": "nx_nexus_simulation",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    },
+    {
+      "from": "nx_nexus_learning",
+      "to": "nx_nexus_swarm",
+      "kind": "nexus-gossip",
+      "weight": 0.6
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "nexus-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 6,
+    "total_edges": 20,
+    "repos": 5
+  },
+  "tags": [
+    "nexus",
+    "network",
+    "bridge"
+  ]
+}

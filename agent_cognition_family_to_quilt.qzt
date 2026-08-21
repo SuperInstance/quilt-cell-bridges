@@ -1,0 +1,998 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "agent-cognition-family-to-quilt",
+  "description": "Bridge mapping 8 agent cognition repos to Quilt. The mind of the cell: DNA, actualizer, home-ai, fishinglog, trust, context, memory, oracle.",
+  "cells": [
+    {
+      "id": "cog_agent_dna",
+      "kind": "cell",
+      "form": {
+        "name": "AgentDna"
+      },
+      "description": "Genetic code for vessel capabilities. AgentGenome, traits, evolution.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "JEPA",
+        "GC"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/agent-dna",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "agent-dna",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "python"
+      ]
+    },
+    {
+      "id": "cog_actualizer_ai",
+      "kind": "cell",
+      "form": {
+        "name": "ActualizerAi"
+      },
+      "description": "Reverse-actualization: work backward from 1, 5, 10, 25, 50, 100 year futures.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/actualizer-ai",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "actualizer-ai",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "python"
+      ]
+    },
+    {
+      "id": "cog_home_ai",
+      "kind": "cell",
+      "form": {
+        "name": "HomeAi"
+      },
+      "description": "Private home AI. Accumulated context IS the product. Cloudflare Workers.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/home-ai",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "home-ai",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cog_fishinglog_ai",
+      "kind": "cell",
+      "form": {
+        "name": "FishinglogAi"
+      },
+      "description": "Edge AI fishing vessel. Jetson-powered species classification. NMEA + camera + sounder.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/fishinglog-ai",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "fishinglog-ai",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cog_trust_graph",
+      "kind": "cell",
+      "form": {
+        "name": "TrustGraph"
+      },
+      "description": "Trust relationships between vessels. Composite trust scoring.",
+      "language": "typescript",
+      "primitives": [
+        "Observe",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/trust-graph",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "trust-graph",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cog_context_serializer",
+      "kind": "cell",
+      "form": {
+        "name": "ContextSerializer"
+      },
+      "description": "Serialize/deserialize context for transfer between vessels.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/context-serializer",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "context-serializer",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cog_hybrid_memory",
+      "kind": "cell",
+      "form": {
+        "name": "HybridMemory"
+      },
+      "description": "Git + KV + causal memory equipment for fleet vessels.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/hybrid-memory",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "hybrid-memory",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cog_oracle1_workspace",
+      "kind": "cell",
+      "form": {
+        "name": "Oracle1Workspace"
+      },
+      "description": "Fleet coordination. Agent identities. SOUL.md, IDENTITY.md, COMMS.md.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive",
+        "Murmur",
+        "GC"
+      ],
+      "z_in": {
+        "input": "thoughts, contexts, identities"
+      },
+      "z_out": {
+        "output": "decisions, plans, memory updates"
+      },
+      "jepa": {
+        "predict": "next thought",
+        "observe": "actual thought"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "thinking"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        },
+        {
+          "name": "remember",
+          "args": [
+            "Memory"
+          ],
+          "returns": "Recall"
+        }
+      ],
+      "substrate": {
+        "address": "/agent-cognition/oracle1-workspace",
+        "scale": 1,
+        "room": "MindRoom",
+        "protocol": "Cognition",
+        "form": "oracle1-workspace",
+        "state": "active"
+      },
+      "tags": [
+        "agent-cognition",
+        "mind",
+        "python"
+      ]
+    },
+    {
+      "id": "agent_cognition_meta",
+      "kind": "cell",
+      "form": {
+        "name": "AgentCognitionMeta"
+      },
+      "description": "The agent cognition family IS the mind of the cell. 8 repos: DNA, actualizer, home-ai, fishinglog-ai, trust-graph, context-serializer, hybrid-memory, oracle1-workspace. The cell thinks, remembers, learns, and acts with purpose.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "agent-cognition",
+        "size": 8
+      },
+      "z_out": {
+        "proof": "cell has a mind"
+      },
+      "jepa": {
+        "predict": "agent = cell mind",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "cog_agent_dna",
+          "cog_actualizer_ai",
+          "cog_home_ai",
+          "cog_fishinglog_ai",
+          "cog_trust_graph",
+          "cog_context_serializer",
+          "cog_hybrid_memory",
+          "cog_oracle1_workspace"
+        ]
+      },
+      "openers": [
+        {
+          "name": "think",
+          "args": [
+            "Context"
+          ],
+          "returns": "Thought"
+        }
+      ],
+      "tags": [
+        "meta",
+        "agent-cognition",
+        "mind"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_agent_dna",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_actualizer_ai",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_home_ai",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_fishinglog_ai",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_trust_graph",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_context_serializer",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_hybrid_memory",
+      "to": "cog_oracle1_workspace",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_agent_dna",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_actualizer_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_home_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_fishinglog_ai",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_trust_graph",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_context_serializer",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "cog_oracle1_workspace",
+      "to": "cog_hybrid_memory",
+      "kind": "cog-gossip",
+      "weight": 0.4
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "agent-*, oracle*, trust-*, home-ai, fishinglog-ai, context-serializer, hybrid-memory, actualizer-ai"
+    }
+  ],
+  "stats": {
+    "total_cells": 9,
+    "total_edges": 56,
+    "repos": 8
+  },
+  "tags": [
+    "agent-cognition",
+    "mind",
+    "bridge"
+  ]
+}
