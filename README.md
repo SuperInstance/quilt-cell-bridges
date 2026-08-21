@@ -20,6 +20,9 @@ it as cells.
 | [chart-room](https://github.com/SuperInstance/chart-room) | Four panels, one truth | `chart_room_to_quilt.py` | 144 |
 | [slackwater-tminus](https://github.com/SuperInstance/slackwater-tminus) | Temporal coordination | `slackwater_tminus_to_quilt.py` | 54 |
 | [hermes-home](https://github.com/SuperInstance/hermes-home) | Hermes's runtime home | `hermes_home_to_quilt.py` | 83 |
+| [spatial-registry](https://github.com/SuperInstance/spatial-registry) | 4 worlds, 33 rooms, 6 cross-world portals | `spatial_registry_to_quilt.py` | 762 |
+| [grand-pattern-rs](https://github.com/SuperInstance/grand-pattern-rs) | Fibonacci dual-direction architecture (12 ports) | `grand_pattern_to_quilt.py` | 412 |
+| [spline-spectral](https://github.com/SuperInstance/spline-spectral) | B-splines as spectral objects | `spline_spectral_to_quilt.py` | 299 |
 
 ## Usage
 
