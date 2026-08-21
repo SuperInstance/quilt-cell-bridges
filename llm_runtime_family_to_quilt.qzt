@@ -1,0 +1,2196 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "llm-runtime-family-to-quilt",
+  "description": "Bridge mapping 14 LLM runtime repos to Quilt. The language model substrate: Claude, Claw, Businesslog.",
+  "cells": [
+    {
+      "id": "llm_claude",
+      "kind": "cell",
+      "form": {
+        "name": "Claude"
+      },
+      "description": "Core Claude integration. The cell talks to Claude.",
+      "language": "python",
+      "slug": "claude",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/claude",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "claude",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_claude_code_vessel",
+      "kind": "cell",
+      "form": {
+        "name": "ClaudeCodeVessel"
+      },
+      "description": "Claude code as a vessel. The cell is a Claude instance.",
+      "language": "python",
+      "slug": "code-vessel",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/claude-code-vessel",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "claude-code-vessel",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_claude_context",
+      "kind": "cell",
+      "form": {
+        "name": "ClaudeContext"
+      },
+      "description": "Claude context management. The cell's Claude context.",
+      "language": "python",
+      "slug": "context",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/claude-context",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "claude-context",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_Claude_Abstraction",
+      "kind": "cell",
+      "form": {
+        "name": "ClaudeAbstraction"
+      },
+      "description": "Claude abstraction layer. The cell abstracts Claude.",
+      "language": "python",
+      "slug": "abstraction",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/Claude-Abstraction",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "Claude-Abstraction",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_Claude_PRISM_CF",
+      "kind": "cell",
+      "form": {
+        "name": "ClaudePrismCf"
+      },
+      "description": "Claude PRISM on Cloudflare Workers.",
+      "language": "python",
+      "slug": "prism-cf",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/Claude-PRISM-CF",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "Claude-PRISM-CF",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_Claude_prism_local_json",
+      "kind": "cell",
+      "form": {
+        "name": "ClaudePrismLocalJson"
+      },
+      "description": "Claude PRISM local JSON. The cell's offline Claude.",
+      "language": "python",
+      "slug": "prism-local",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/Claude-prism-local-json",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "Claude-prism-local-json",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_claw",
+      "kind": "cell",
+      "form": {
+        "name": "Claw"
+      },
+      "description": "Claw engine. The cell's orchestration engine.",
+      "language": "python",
+      "slug": "claw",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/claw",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "claw",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_claw_extensions",
+      "kind": "cell",
+      "form": {
+        "name": "ClawExtensions"
+      },
+      "description": "Claw extensions. The cell's extra capabilities.",
+      "language": "python",
+      "slug": "extensions",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/claw-extensions",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "claw-extensions",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_claw_in_plato",
+      "kind": "cell",
+      "form": {
+        "name": "ClawInPlato"
+      },
+      "description": "Claw in PLATO. The cell runs in PLATO.",
+      "language": "python",
+      "slug": "in-plato",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/claw-in-plato",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "claw-in-plato",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_businesslog_1",
+      "kind": "cell",
+      "form": {
+        "name": "Businesslog1"
+      },
+      "description": "Business log 1. The cell's first business log.",
+      "language": "python",
+      "slug": "log-1",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/businesslog-1",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "businesslog-1",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_businesslog_agent",
+      "kind": "cell",
+      "form": {
+        "name": "BusinesslogAgent"
+      },
+      "description": "Business log agent. The cell's log keeper.",
+      "language": "python",
+      "slug": "agent",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/businesslog-agent",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "businesslog-agent",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_businesslog_ai",
+      "kind": "cell",
+      "form": {
+        "name": "BusinesslogAi"
+      },
+      "description": "Business log AI. The cell's intelligent logging.",
+      "language": "python",
+      "slug": "ai",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/businesslog-ai",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "businesslog-ai",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_businesslog_ai_pages",
+      "kind": "cell",
+      "form": {
+        "name": "BusinesslogAiPages"
+      },
+      "description": "Business log pages. The cell's log UI.",
+      "language": "html",
+      "slug": "ai-pages",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/businesslog-ai-pages",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "businesslog-ai-pages",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "html"
+      ]
+    },
+    {
+      "id": "llm_businesslog_app",
+      "kind": "cell",
+      "form": {
+        "name": "BusinesslogApp"
+      },
+      "description": "Business log app. The cell's log app.",
+      "language": "python",
+      "slug": "app",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "LLM prompt, business event"
+      },
+      "z_out": {
+        "output": "LLM response, log entry"
+      },
+      "jepa": {
+        "predict": "next LLM token",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.3,
+        "eta": 0.7
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Response"
+        },
+        {
+          "name": "log",
+          "args": [
+            "Event"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/llm-runtime/businesslog-app",
+        "scale": 0,
+        "room": "LLMRoom",
+        "protocol": "LLM",
+        "form": "businesslog-app",
+        "state": "ready"
+      },
+      "tags": [
+        "llm-runtime",
+        "claude",
+        "claw",
+        "businesslog",
+        "python"
+      ]
+    },
+    {
+      "id": "llm_runtime_meta",
+      "kind": "cell",
+      "form": {
+        "name": "LLMRuntimeMeta"
+      },
+      "description": "The LLM runtime family IS the language model substrate of Quilt. 14 repos: 6 Claude, 3 Claw, 5 Businesslog. The cell talks to Claude, orchestrates with Claw, logs with Businesslog.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "llm-runtime",
+        "size": 14
+      },
+      "z_out": {
+        "proof": "cell has LLM substrate"
+      },
+      "tags": [
+        "meta",
+        "llm-runtime",
+        "claude",
+        "claw"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "llm_claude",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_code_vessel",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claude_context",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_Abstraction",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_PRISM_CF",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_Claude_prism_local_json",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_extensions",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_claw_in_plato",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_1",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_agent",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_ai_pages",
+      "to": "llm_businesslog_app",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_claude",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_claude_code_vessel",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_claude_context",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_Claude_Abstraction",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_Claude_PRISM_CF",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_Claude_prism_local_json",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_claw",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_claw_extensions",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_claw_in_plato",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_businesslog_1",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_businesslog_agent",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_businesslog_ai",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "llm_businesslog_app",
+      "to": "llm_businesslog_ai_pages",
+      "kind": "llm-gossip",
+      "weight": 0.3
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "claude*, Claude*, claw-*, businesslog-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 15,
+    "total_edges": 182,
+    "repos": 14
+  },
+  "tags": [
+    "llm-runtime",
+    "claude",
+    "claw",
+    "bridge"
+  ]
+}

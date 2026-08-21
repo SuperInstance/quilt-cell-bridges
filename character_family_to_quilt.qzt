@@ -1,0 +1,905 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "character-family-to-quilt",
+  "description": "Bridge mapping 8 character repos to Quilt. The persona substrate: who the cell is.",
+  "cells": [
+    {
+      "id": "char_character",
+      "kind": "cell",
+      "form": {
+        "name": "Character"
+      },
+      "description": "Core character type. Persona, traits, attributes. The 'who' of a cell.",
+      "language": "typescript",
+      "slug": "persona",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_arc",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterArc"
+      },
+      "description": "Narrative progression. How a character changes over time.",
+      "language": "typescript",
+      "slug": "arc",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-arc",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-arc",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_build",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterBuild"
+      },
+      "description": "Construction system. How to build a character from parts.",
+      "language": "typescript",
+      "slug": "build",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-build",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-build",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_class",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterClass"
+      },
+      "description": "Archetype, class system. Wizard, warrior, rogue as cell kinds.",
+      "language": "typescript",
+      "slug": "class",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-class",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-class",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_encounter",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterEncounter"
+      },
+      "description": "Combat/social mechanics. Encounters between cells.",
+      "language": "typescript",
+      "slug": "encounter",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-encounter",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-encounter",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_library",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterLibrary"
+      },
+      "description": "Reusable characters. The cell's character database.",
+      "language": "typescript",
+      "slug": "library",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-library",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-library",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_sheet",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterSheet"
+      },
+      "description": "Stats, equipment, attributes. The cell's state.",
+      "language": "typescript",
+      "slug": "sheet",
+      "primitives": [
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-sheet",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-sheet",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "char_character_skill_trees",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterSkillTrees"
+      },
+      "description": "Progression trees. How cells grow.",
+      "language": "typescript",
+      "slug": "skill-trees",
+      "primitives": [
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "persona, traits, stats"
+      },
+      "z_out": {
+        "output": "character state, progression, encounter result"
+      },
+      "jepa": {
+        "predict": "character evolution",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "developing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "play",
+          "args": [
+            "Character"
+          ],
+          "returns": "Role"
+        }
+      ],
+      "substrate": {
+        "address": "/character/character-skill-trees",
+        "scale": 1,
+        "room": "CharacterRoom",
+        "protocol": "Persona",
+        "form": "character-skill-trees",
+        "state": "ready"
+      },
+      "tags": [
+        "character",
+        "persona",
+        "typescript"
+      ]
+    },
+    {
+      "id": "character_family_meta",
+      "kind": "cell",
+      "form": {
+        "name": "CharacterFamilyMeta"
+      },
+      "description": "The character family IS the persona substrate of Quilt. 8 repos for the cell's 'who' \u2014 persona, arc, build, class, encounter, library, sheet, skill-trees.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "character",
+        "size": 8
+      },
+      "z_out": {
+        "proof": "cell has a persona"
+      },
+      "tags": [
+        "meta",
+        "character",
+        "persona"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "char_character",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_arc",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_build",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_class",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_encounter",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_library",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_sheet",
+      "to": "char_character_skill_trees",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character_arc",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character_build",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character_class",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character_encounter",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character_library",
+      "kind": "char-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "char_character_skill_trees",
+      "to": "char_character_sheet",
+      "kind": "char-gossip",
+      "weight": 0.5
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "character-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 9,
+    "total_edges": 56,
+    "repos": 8
+  },
+  "tags": [
+    "character",
+    "persona",
+    "bridge"
+  ]
+}

@@ -1,0 +1,2116 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "collective-context-to-quilt",
+  "description": "Bridge mapping 14 collective+context repos to Quilt. The swarm intelligence + memory management substrate.",
+  "cells": [
+    {
+      "id": "colctx_collective_ai",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveAi"
+      },
+      "description": "Swarm AI. Many minds, one answer.",
+      "language": "python",
+      "slug": "swarm-ai",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-ai",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-ai",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_collective_inference",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveInference"
+      },
+      "description": "Distributed inference. Inference across many cells.",
+      "language": "python",
+      "slug": "inference",
+      "primitives": [
+        "Observe",
+        "JEPA",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-inference",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-inference",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_collective_mind",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveMind"
+      },
+      "description": "Swarm mind. The cell's collective cognition.",
+      "language": "python",
+      "slug": "mind",
+      "primitives": [
+        "Observe",
+        "JEPA",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-mind",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-mind",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_collective_mind_v2",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveMindV2"
+      },
+      "description": "v2: better algorithms.",
+      "language": "python",
+      "slug": "mind-v2",
+      "primitives": [
+        "Observe",
+        "JEPA",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-mind-v2",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-mind-v2",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_collective_reasoning",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveReasoning"
+      },
+      "description": "Distributed reasoning. Reasoning across cells.",
+      "language": "python",
+      "slug": "reasoning",
+      "primitives": [
+        "Observe",
+        "JEPA",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-reasoning",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-reasoning",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_collective_recall_demo",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveRecallDemo"
+      },
+      "description": "Demo of collective recall.",
+      "language": "python",
+      "slug": "recall-demo",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-recall-demo",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-recall-demo",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_collective_unconscious",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveUnconscious"
+      },
+      "description": "Jungian collective unconscious. The deep shared memory.",
+      "language": "python",
+      "slug": "unconscious",
+      "primitives": [
+        "Observe",
+        "JEPA",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/collective-unconscious",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "collective-unconscious",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "python"
+      ]
+    },
+    {
+      "id": "colctx_context_broker",
+      "kind": "cell",
+      "form": {
+        "name": "ContextBroker"
+      },
+      "description": "Broker context between cells. The cell's memory router.",
+      "language": "typescript",
+      "slug": "broker",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-broker",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-broker",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "colctx_context_compactor",
+      "kind": "cell",
+      "form": {
+        "name": "ContextCompactor"
+      },
+      "description": "Compact context for transfer. Reduce without losing meaning.",
+      "language": "typescript",
+      "slug": "compactor",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-compactor",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-compactor",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "colctx_context_compactor_v2",
+      "kind": "cell",
+      "form": {
+        "name": "ContextCompactorV2"
+      },
+      "description": "v2: better algorithms.",
+      "language": "typescript",
+      "slug": "compactor-v2",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-compactor-v2",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-compactor-v2",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "colctx_context_lattice",
+      "kind": "cell",
+      "form": {
+        "name": "ContextLattice"
+      },
+      "description": "Context as a lattice. The cell's memory topology.",
+      "language": "typescript",
+      "slug": "lattice",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-lattice",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-lattice",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "colctx_context_limits",
+      "kind": "cell",
+      "form": {
+        "name": "ContextLimits"
+      },
+      "description": "Manage context limits. The cell's memory boundaries.",
+      "language": "typescript",
+      "slug": "limits",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-limits",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-limits",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "colctx_context_recycler",
+      "kind": "cell",
+      "form": {
+        "name": "ContextRecycler"
+      },
+      "description": "Recycle context. The cell's memory GC.",
+      "language": "typescript",
+      "slug": "recycler",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-recycler",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-recycler",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "colctx_context_serializer",
+      "kind": "cell",
+      "form": {
+        "name": "ContextSerializer"
+      },
+      "description": "Serialize context for transfer between cells.",
+      "language": "typescript",
+      "slug": "serializer",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "context, swarm signal"
+      },
+      "z_out": {
+        "output": "compacted context, swarm answer"
+      },
+      "jepa": {
+        "predict": "next context state",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "process",
+          "args": [
+            "Context"
+          ],
+          "returns": "Result"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-context/context-serializer",
+        "scale": 1,
+        "room": "CollectiveContextRoom",
+        "protocol": "Swarm",
+        "form": "context-serializer",
+        "state": "ready"
+      },
+      "tags": [
+        "collective",
+        "context",
+        "swarm",
+        "typescript"
+      ]
+    },
+    {
+      "id": "collective_context_meta",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveContextMeta"
+      },
+      "description": "The collective+context family IS the swarm + memory-management substrate of Quilt. 14 repos: 7 for collective intelligence, 7 for context lifecycle. The cell thinks with the swarm and remembers with the lattice.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "collective-context",
+        "size": 14
+      },
+      "z_out": {
+        "proof": "cell thinks with swarm, remembers with lattice"
+      },
+      "tags": [
+        "meta",
+        "collective",
+        "context"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_ai",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_inference",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_mind_v2",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_reasoning",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_recall_demo",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_collective_unconscious",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_broker",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_compactor_v2",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_lattice",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_limits",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_recycler",
+      "to": "colctx_context_serializer",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_ai",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_inference",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_mind",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_mind_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_reasoning",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_recall_demo",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_collective_unconscious",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_context_broker",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_context_compactor",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_context_compactor_v2",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_context_lattice",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_context_limits",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "colctx_context_serializer",
+      "to": "colctx_context_recycler",
+      "kind": "swarm-gossip",
+      "weight": 0.3
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "collective-*"
+    },
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "context-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 15,
+    "total_edges": 182,
+    "repos": 14
+  },
+  "tags": [
+    "collective",
+    "context",
+    "swarm",
+    "bridge"
+  ]
+}

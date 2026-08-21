@@ -1,0 +1,3712 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "protocols-to-quilt",
+  "description": "Bridge mapping 21 protocol repos to Quilt. A2A + A2UI + Baton + API tools.",
+  "cells": [
+    {
+      "id": "proto_a2a_adapter",
+      "kind": "cell",
+      "form": {
+        "name": "A2AAdapter"
+      },
+      "description": "Adapter for A2A protocol. The cell speaks A2A.",
+      "language": "typescript",
+      "slug": "adapter",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2a-adapter",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2a-adapter",
+        "form": "a2a-adapter",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2a_constraint_protocol",
+      "kind": "cell",
+      "form": {
+        "name": "A2AConstraintProtocol"
+      },
+      "description": "Constraint-based A2A. Cells negotiate constraints.",
+      "language": "typescript",
+      "slug": "constraint",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2a-constraint-protocol",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2a-constraint-protocol",
+        "form": "a2a-constraint-protocol",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2a_future",
+      "kind": "cell",
+      "form": {
+        "name": "A2AFuture"
+      },
+      "description": "Future A2A. The cell's communication evolution.",
+      "language": "typescript",
+      "slug": "future",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2a-future",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2a-future",
+        "form": "a2a-future",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2a_protocol",
+      "kind": "cell",
+      "form": {
+        "name": "A2AProtocol"
+      },
+      "description": "Core A2A protocol. The cell's standard speak.",
+      "language": "typescript",
+      "slug": "protocol",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2a-protocol",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2a-protocol",
+        "form": "a2a-protocol",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2a_r_protocol",
+      "kind": "cell",
+      "form": {
+        "name": "A2ARProtocol"
+      },
+      "description": "R variant of A2A. Statistical A2A.",
+      "language": "r",
+      "slug": "r-protocol",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2a-r-protocol",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2a-r-protocol",
+        "form": "a2a-r-protocol",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "r"
+      ]
+    },
+    {
+      "id": "proto_a2a_signal_chain",
+      "kind": "cell",
+      "form": {
+        "name": "A2ASignalChain"
+      },
+      "description": "Signal chain A2A. Chain of signals between cells.",
+      "language": "typescript",
+      "slug": "signal-chain",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2a-signal-chain",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2a-signal-chain",
+        "form": "a2a-signal-chain",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2ui",
+      "kind": "cell",
+      "form": {
+        "name": "A2Ui"
+      },
+      "description": "Agent-to-UI. The cell renders to humans.",
+      "language": "typescript",
+      "slug": "core",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Mutate",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2ui",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2ui",
+        "form": "a2ui",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2ui_cave_wall",
+      "kind": "cell",
+      "form": {
+        "name": "A2UiCaveWall"
+      },
+      "description": "Cave-wall style A2UI. Prehistoric, raw.",
+      "language": "typescript",
+      "slug": "cave-wall",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Mutate",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2ui-cave-wall",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2ui-cave-wall",
+        "form": "a2ui-cave-wall",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2ui_components",
+      "kind": "cell",
+      "form": {
+        "name": "A2UiComponents"
+      },
+      "description": "A2UI component library. The cell's UI primitives.",
+      "language": "typescript",
+      "slug": "components",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Mutate",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2ui-components",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2ui-components",
+        "form": "a2ui-components",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2ui_protocol",
+      "kind": "cell",
+      "form": {
+        "name": "A2UiProtocol"
+      },
+      "description": "A2UI protocol. The cell's standard render.",
+      "language": "typescript",
+      "slug": "protocol",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Mutate",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2ui-protocol",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2ui-protocol",
+        "form": "a2ui-protocol",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_a2ui_render",
+      "kind": "cell",
+      "form": {
+        "name": "A2UiRender"
+      },
+      "description": "A2UI renderer. The cell's render engine.",
+      "language": "typescript",
+      "slug": "render",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Mutate",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/a2ui-render",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "a2ui-render",
+        "form": "a2ui-render",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_baton_ai",
+      "kind": "cell",
+      "form": {
+        "name": "BatonAi"
+      },
+      "description": "AI Baton. Pass the baton between cells.",
+      "language": "typescript",
+      "slug": "ai",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Move"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/baton-ai",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "baton-ai",
+        "form": "baton-ai",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_baton_orchestrator",
+      "kind": "cell",
+      "form": {
+        "name": "BatonOrchestrator"
+      },
+      "description": "Orchestrator baton. The cell's baton master.",
+      "language": "typescript",
+      "slug": "orchestrator",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Move"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/baton-orchestrator",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "baton-orchestrator",
+        "form": "baton-orchestrator",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_baton_protocol",
+      "kind": "cell",
+      "form": {
+        "name": "BatonProtocol"
+      },
+      "description": "Baton protocol. The cell's standard handoff.",
+      "language": "typescript",
+      "slug": "protocol",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Move"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/baton-protocol",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "baton-protocol",
+        "form": "baton-protocol",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_baton_router",
+      "kind": "cell",
+      "form": {
+        "name": "BatonRouter"
+      },
+      "description": "Baton router. Where the baton goes next.",
+      "language": "typescript",
+      "slug": "router",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Move"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/baton-router",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "baton-router",
+        "form": "baton-router",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_baton_skill",
+      "kind": "cell",
+      "form": {
+        "name": "BatonSkill"
+      },
+      "description": "Baton skill. The cell's baton capabilities.",
+      "language": "typescript",
+      "slug": "skill",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Move"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/baton-skill",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "baton-skill",
+        "form": "baton-skill",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_api_doc_generator",
+      "kind": "cell",
+      "form": {
+        "name": "ApiDocGenerator"
+      },
+      "description": "Generate API docs from cell definitions.",
+      "language": "typescript",
+      "slug": "doc-gen",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/api-doc-generator",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "api-doc-generator",
+        "form": "api-doc-generator",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_api_gateway",
+      "kind": "cell",
+      "form": {
+        "name": "ApiGateway"
+      },
+      "description": "API gateway. The cell's front door.",
+      "language": "typescript",
+      "slug": "gateway",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/api-gateway",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "api-gateway",
+        "form": "api-gateway",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_api_playground",
+      "kind": "cell",
+      "form": {
+        "name": "ApiPlayground"
+      },
+      "description": "API playground. Test the cell's APIs.",
+      "language": "typescript",
+      "slug": "playground",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/api-playground",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "api-playground",
+        "form": "api-playground",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "proto_api_versioner",
+      "kind": "cell",
+      "form": {
+        "name": "ApiVersioner"
+      },
+      "description": "Version the cell's APIs.",
+      "language": "typescript",
+      "slug": "versioner",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "protocol message"
+      },
+      "z_out": {
+        "output": "protocol response, UI render, baton handoff"
+      },
+      "jepa": {
+        "predict": "next protocol step",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "speak",
+          "args": [
+            "Message"
+          ],
+          "returns": "Response"
+        }
+      ],
+      "substrate": {
+        "address": "/protocols/api-versioner",
+        "scale": 0,
+        "room": "ProtocolRoom",
+        "protocol": "api-versioner",
+        "form": "api-versioner",
+        "state": "ready"
+      },
+      "tags": [
+        "protocols",
+        "a2a",
+        "a2ui",
+        "baton",
+        "api",
+        "typescript"
+      ]
+    },
+    {
+      "id": "protocols_meta",
+      "kind": "cell",
+      "form": {
+        "name": "ProtocolsMeta"
+      },
+      "description": "The protocols family IS the communication substrate. 21 repos: 6 A2A, 5 A2UI, 5 Baton, 5 API tools. The cell speaks, renders, hands off, and serves.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "protocols",
+        "size": 21
+      },
+      "z_out": {
+        "proof": "cell has standard communication"
+      },
+      "tags": [
+        "meta",
+        "protocols",
+        "communication"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_adapter",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_constraint_protocol",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_future",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_protocol",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_r_protocol",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2a_signal_chain",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_cave_wall",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_components",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_protocol",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_a2ui_render",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_ai",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_orchestrator",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_protocol",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_router",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_baton_skill",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_doc_generator",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_gateway",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_playground",
+      "to": "proto_api_versioner",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2a_adapter",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2a_constraint_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2a_future",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2a_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2a_r_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2a_signal_chain",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2ui",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2ui_cave_wall",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2ui_components",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2ui_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_a2ui_render",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_baton_ai",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_baton_orchestrator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_baton_protocol",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_baton_router",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_baton_skill",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_api_doc_generator",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_api_gateway",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "proto_api_versioner",
+      "to": "proto_api_playground",
+      "kind": "protocol-gossip",
+      "weight": 0.3
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "a2a-*, a2ui-*, baton-*, api-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 21,
+    "total_edges": 380,
+    "repos": 20
+  },
+  "tags": [
+    "protocols",
+    "a2a",
+    "a2ui",
+    "baton",
+    "bridge"
+  ]
+}
