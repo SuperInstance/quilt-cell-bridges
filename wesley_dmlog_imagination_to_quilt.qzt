@@ -1,0 +1,3275 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "imagination-substrate-to-quilt",
+  "description": "Bridge mapping 4 imagination repos + 14 subsystems to Quilt. The cell's capacity for story: wesley-holodeck, dmlog-agent, dmlog-ai-1, plato-dmn-ecm.",
+  "cells": [
+    {
+      "id": "img_wesley_holodeck",
+      "kind": "cell",
+      "form": {
+        "name": "WesleyHolodeck"
+      },
+      "description": "Creative loop: 2B model (Wesley/granite-3.1-dense:2b) writes, 4 teachers rotate, FLUX-2-max scene, TTS narration, Myst-style visual holodeck. Twin worlds: text + visual.",
+      "language": "html",
+      "slug": "creative-loop",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "JEPA",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/wesley-holodeck",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "wesley-holodeck",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "html"
+      ]
+    },
+    {
+      "id": "img_dmlog_agent",
+      "kind": "cell",
+      "form": {
+        "name": "DmlogAgent"
+      },
+      "description": "Agent framework for D&D/Tabletop RPGs. NPC tracking, factions, locations, encounters, session notes, JSON export/import.",
+      "language": "python",
+      "slug": "ttrpg-agent",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmlog-agent",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmlog-agent",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "python"
+      ]
+    },
+    {
+      "id": "img_dmlog_ai_1",
+      "kind": "cell",
+      "form": {
+        "name": "DmlogAi1"
+      },
+      "description": "DMLog.ai \u2014 AI Dungeon Master for TTRPGs. Cloudflare Workers, fork-first, zero lock-in, plain text in KV, zero runtime deps.",
+      "language": "?",
+      "slug": "dungeon-master",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmlog-ai-1",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmlog-ai-1",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "?"
+      ]
+    },
+    {
+      "id": "img_plato_dmn_ecm",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoDmnEcm"
+      },
+      "description": "DMN/ECN reverse-actualization. Default Mode Network (creative) + Executive Control Network (logical) in tandem, with PLATO as rostral prefrontal cortex bridge. Gradient = DMN novelty \u2212 ECN constraint.",
+      "language": "python",
+      "slug": "creativity-engine",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/plato-dmn-ecm",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "plato-dmn-ecm",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "python"
+      ]
+    },
+    {
+      "id": "img_wesley_writer",
+      "kind": "cell",
+      "form": {
+        "name": "Wesley_Writer"
+      },
+      "description": "Wesley (granite-3.1-dense:2b) writes first draft via local Ollama. No API calls. His own voice.",
+      "language": "ollama",
+      "slug": "writer",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/wesley_writer",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "wesley_writer",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "ollama"
+      ]
+    },
+    {
+      "id": "img_wesley_teachers",
+      "kind": "cell",
+      "form": {
+        "name": "Wesley_Teachers"
+      },
+      "description": "4 teachers rotate: Earnest (Seed-2.0-mini, kind), Philosopher (Seed-2.0-pro, deep), Craftsman (Qwen3-Coder, form), Voice (Hermes-3-Llama-3.1-405B, personality).",
+      "language": "deepinfra",
+      "slug": "teachers",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Send"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/wesley_teachers",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "wesley_teachers",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "deepinfra"
+      ]
+    },
+    {
+      "id": "img_wesley_flux",
+      "kind": "cell",
+      "form": {
+        "name": "Wesley_Flux"
+      },
+      "description": "FLUX-2-max scene illustration. Myst-style atmospheric backgrounds.",
+      "language": "flux",
+      "slug": "scene-art",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/wesley_flux",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "wesley_flux",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "flux"
+      ]
+    },
+    {
+      "id": "img_wesley_tts",
+      "kind": "cell",
+      "form": {
+        "name": "Wesley_Tts"
+      },
+      "description": "Qwen3-TTS-VoiceDesign. Narration. Speaks Wesley's pieces.",
+      "language": "tts",
+      "slug": "narration",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/wesley_tts",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "wesley_tts",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "tts"
+      ]
+    },
+    {
+      "id": "img_wesley_holodeck_html",
+      "kind": "cell",
+      "form": {
+        "name": "Wesley_Holodeck_Html"
+      },
+      "description": "Myst/Monkey Island-style point-and-click. Dark scenes, ambient audio, clickable hotspots. The visual twin of Wesley's text world.",
+      "language": "html",
+      "slug": "visual-twin",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/wesley_holodeck_html",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "wesley_holodeck_html",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "html"
+      ]
+    },
+    {
+      "id": "img_dmlog_npcs",
+      "kind": "cell",
+      "form": {
+        "name": "Dmlog_Npcs"
+      },
+      "description": "NPC tracking: secrets, motivations, alignment, status.",
+      "language": "python",
+      "slug": "npc",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmlog_npcs",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmlog_npcs",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "python"
+      ]
+    },
+    {
+      "id": "img_dmlog_factions",
+      "kind": "cell",
+      "form": {
+        "name": "Dmlog_Factions"
+      },
+      "description": "Faction management: influence, allies, enemies.",
+      "language": "python",
+      "slug": "faction",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmlog_factions",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmlog_factions",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "python"
+      ]
+    },
+    {
+      "id": "img_dmlog_locations",
+      "kind": "cell",
+      "form": {
+        "name": "Dmlog_Locations"
+      },
+      "description": "Location database: connections, notable features.",
+      "language": "python",
+      "slug": "location",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmlog_locations",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmlog_locations",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "python"
+      ]
+    },
+    {
+      "id": "img_dmlog_encounters",
+      "kind": "cell",
+      "form": {
+        "name": "Dmlog_Encounters"
+      },
+      "description": "Encounter builder: terrain, creatures, objectives, ratings.",
+      "language": "python",
+      "slug": "encounter",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmlog_encounters",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmlog_encounters",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "python"
+      ]
+    },
+    {
+      "id": "img_dmn_divergent",
+      "kind": "cell",
+      "form": {
+        "name": "Dmn_Divergent"
+      },
+      "description": "DMN model generates N creative options, no filtering. The divergent phase.",
+      "language": "?",
+      "slug": "divergent",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmn_divergent",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmn_divergent",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "?"
+      ]
+    },
+    {
+      "id": "img_ecn_convergent",
+      "kind": "cell",
+      "form": {
+        "name": "Ecn_Convergent"
+      },
+      "description": "ECN model critiques each option for logical consistency. The convergent phase.",
+      "language": "?",
+      "slug": "convergent",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/ecn_convergent",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "ecn_convergent",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "?"
+      ]
+    },
+    {
+      "id": "img_dmn_recombination",
+      "kind": "cell",
+      "form": {
+        "name": "Dmn_Recombination"
+      },
+      "description": "DMN model revises based on critiques without losing novelty.",
+      "language": "?",
+      "slug": "recombination",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/dmn_recombination",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "dmn_recombination",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "?"
+      ]
+    },
+    {
+      "id": "img_ecn_final",
+      "kind": "cell",
+      "form": {
+        "name": "Ecn_Final"
+      },
+      "description": "ECN model ranks and synthesizes the best result.",
+      "language": "?",
+      "slug": "final",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/ecn_final",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "ecn_final",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "?"
+      ]
+    },
+    {
+      "id": "img_rpec_bridge",
+      "kind": "cell",
+      "form": {
+        "name": "Rpec_Bridge"
+      },
+      "description": "PLATO as rostral prefrontal cortex bridge. The bridge that holds DMN and ECN apart.",
+      "language": "?",
+      "slug": "bridge",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "story, prompt, NPC, encounter, gradient target"
+      },
+      "z_out": {
+        "output": "draft, scene, narration, NPC state, reverse-actualized result"
+      },
+      "jepa": {
+        "predict": "creative trajectory",
+        "observe": "actual output"
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "imagining"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "imagine",
+          "args": [
+            "Prompt"
+          ],
+          "returns": "Story"
+        },
+        {
+          "name": "play",
+          "args": [
+            "Session"
+          ],
+          "returns": "Game"
+        }
+      ],
+      "substrate": {
+        "address": "/imagination/rpec_bridge",
+        "scale": 1,
+        "room": "ImaginationRoom",
+        "protocol": "Story",
+        "form": "rpec_bridge",
+        "state": "ready"
+      },
+      "tags": [
+        "imagination",
+        "story",
+        "creativity",
+        "?"
+      ]
+    },
+    {
+      "id": "imagination_meta",
+      "kind": "cell",
+      "form": {
+        "name": "ImaginationMeta"
+      },
+      "description": "The imagination substrate IS the cell's capacity for story. wesley-holodeck (creative loop, twin worlds), dmlog-agent/dmlog-ai-1 (TTRPG), plato-dmn-ecm (reverse-actualization). The cell can dream, write, play, and create.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "imagination",
+        "size": 18
+      },
+      "z_out": {
+        "proof": "cell can imagine"
+      },
+      "jepa": {
+        "predict": "story arc",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.8,
+        "eta": 0.2
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "img_wesley_holodeck",
+          "img_dmlog_agent",
+          "img_dmlog_ai_1",
+          "img_plato_dmn_ecm",
+          "img_wesley_writer",
+          "img_wesley_teachers",
+          "img_wesley_flux",
+          "img_wesley_tts",
+          "img_wesley_holodeck_html",
+          "img_dmlog_npcs",
+          "img_dmlog_factions",
+          "img_dmlog_locations",
+          "img_dmlog_encounters",
+          "img_dmn_divergent",
+          "img_ecn_convergent",
+          "img_dmn_recombination",
+          "img_ecn_final",
+          "img_rpec_bridge"
+        ]
+      },
+      "tags": [
+        "meta",
+        "imagination",
+        "story"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_agent",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_ai_1",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_plato_dmn_ecm",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_writer",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_teachers",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_flux",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_tts",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_wesley_holodeck_html",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_npcs",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_factions",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_locations",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmlog_encounters",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_divergent",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_convergent",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_dmn_recombination",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_ecn_final",
+      "to": "img_rpec_bridge",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_wesley_holodeck",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmlog_agent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmlog_ai_1",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_plato_dmn_ecm",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_wesley_writer",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_wesley_teachers",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_wesley_flux",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_wesley_tts",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_wesley_holodeck_html",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmlog_npcs",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmlog_factions",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmlog_locations",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmlog_encounters",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmn_divergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_ecn_convergent",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_dmn_recombination",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    },
+    {
+      "from": "img_rpec_bridge",
+      "to": "img_ecn_final",
+      "kind": "imagination-gossip",
+      "weight": 0.4
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "wesley-holodeck",
+      "org": "SuperInstance"
+    },
+    {
+      "kind": "github-repo",
+      "name": "dmlog-agent",
+      "org": "SuperInstance"
+    },
+    {
+      "kind": "github-repo",
+      "name": "dmlog-ai-1",
+      "org": "SuperInstance"
+    },
+    {
+      "kind": "github-repo",
+      "name": "plato-dmn-ecm",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 19,
+    "total_edges": 306,
+    "repos": 4,
+    "subsystems": 14
+  },
+  "tags": [
+    "imagination",
+    "story",
+    "creativity",
+    "wesley",
+    "dmlog",
+    "dmn-ecm",
+    "bridge"
+  ]
+}
