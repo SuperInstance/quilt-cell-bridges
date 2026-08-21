@@ -1,0 +1,2152 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "mud-family-to-quilt",
+  "description": "Bridge mapping the 13 MUD family repos to Quilt. The MUD family IS the spatial substrate: rooms, worlds, NPC agents, training grounds.",
+  "cells": [
+    {
+      "id": "mud_mud_arena",
+      "kind": "cell",
+      "form": {
+        "name": "MudArena"
+      },
+      "description": "Flow-state engineering arena \u2014 agents run forward simulation",
+      "language": "python",
+      "slug": "arena",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/mud-arena",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "mud-arena",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "arena"
+      ]
+    },
+    {
+      "id": "mud_mud_solitaire",
+      "kind": "cell",
+      "form": {
+        "name": "MudSolitaire"
+      },
+      "description": "AI plays solitaire through a text MUD",
+      "language": "python",
+      "slug": "game",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/mud-solitaire",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "mud-solitaire",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "game"
+      ]
+    },
+    {
+      "id": "mud_plato_os",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoOs"
+      },
+      "description": "Python MUD \u2014 PLATO room server with TUTOR anchors",
+      "language": "python",
+      "slug": "server",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/plato-os",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "plato-os",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "server"
+      ]
+    },
+    {
+      "id": "mud_mud_engine",
+      "kind": "cell",
+      "form": {
+        "name": "MudEngine"
+      },
+      "description": "MUD Engine \u2014 2026-native multi-agent MUD architecture",
+      "language": "typescript",
+      "slug": "engine",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/mud-engine",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "mud-engine",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "typescript",
+        "engine"
+      ]
+    },
+    {
+      "id": "mud_git_native_mud",
+      "kind": "cell",
+      "form": {
+        "name": "GitNativeMud"
+      },
+      "description": "The repo IS the world. Commits ARE actions. Zero server MUD.",
+      "language": "python",
+      "slug": "git-native",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/git-native-mud",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "git-native-mud",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "git-native"
+      ]
+    },
+    {
+      "id": "mud_mud_expert_1",
+      "kind": "cell",
+      "form": {
+        "name": "MudExpert1"
+      },
+      "description": "MUD Expert agent for Plato environment mapping. Bred by CCC.",
+      "language": "python",
+      "slug": "agent",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/mud-expert-1",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "mud-expert-1",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "agent"
+      ]
+    },
+    {
+      "id": "mud_plato_mud_server",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoMudServer"
+      },
+      "description": "PLATO MUD Server - text-based agent training ground, 16 rooms",
+      "language": "python",
+      "slug": "server",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe",
+        "Murmur"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/plato-mud-server",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "plato-mud-server",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "server"
+      ]
+    },
+    {
+      "id": "mud_mud2scummvm",
+      "kind": "cell",
+      "form": {
+        "name": "Mud2Scummvm"
+      },
+      "description": "Bridge between agent MUD world and SCUMM point-and-click",
+      "language": "rust",
+      "slug": "bridge",
+      "primitives": [
+        "Spawn",
+        "Receive",
+        "Send",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/mud2scummvm",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "mud2scummvm",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "rust",
+        "bridge"
+      ]
+    },
+    {
+      "id": "mud_terrain",
+      "kind": "cell",
+      "form": {
+        "name": "Terrain"
+      },
+      "description": "MUD-to-Visual bridge \u2014 rooms as explorable scenes",
+      "language": "python",
+      "slug": "visual",
+      "primitives": [
+        "Spawn",
+        "Receive",
+        "Send",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/terrain",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "terrain",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "visual"
+      ]
+    },
+    {
+      "id": "mud_plato_ship_demo",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoShipDemo"
+      },
+      "description": "Minimal MUD server for zeroshot external agent testing",
+      "language": "python",
+      "slug": "demo",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/plato-ship-demo",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "plato-ship-demo",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "demo"
+      ]
+    },
+    {
+      "id": "mud_ternary_mud",
+      "kind": "cell",
+      "form": {
+        "name": "TernaryMud"
+      },
+      "description": "MUD room connections as balanced ternary {-1,0,+1} algebra",
+      "language": "rust",
+      "slug": "ternary",
+      "primitives": [
+        "Observe",
+        "Mutate",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/ternary-mud",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "ternary-mud",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "rust",
+        "ternary"
+      ]
+    },
+    {
+      "id": "mud_plato_ng",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoNg"
+      },
+      "description": "Next-gen PLATO: Loop Room architecture with MUD lobby",
+      "language": "python",
+      "slug": "next-gen",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/plato-ng",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "plato-ng",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "next-gen"
+      ]
+    },
+    {
+      "id": "mud_plato_agent_academy",
+      "kind": "cell",
+      "form": {
+        "name": "PlatoAgentAcademy"
+      },
+      "description": "Agent Academy for PLATO MUD \u2014 zero-shot agent training",
+      "language": "python",
+      "slug": "academy",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "command from agent or user"
+      },
+      "z_out": {
+        "output": "room state, NPC response, world event"
+      },
+      "jepa": {
+        "predict": "next room state",
+        "observe": "actual state"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "say",
+          "args": [
+            "str"
+          ],
+          "returns": "Responses"
+        },
+        {
+          "name": "move",
+          "args": [
+            "Direction"
+          ],
+          "returns": "Room"
+        }
+      ],
+      "substrate": {
+        "address": "/mud/plato-agent-academy",
+        "scale": 1,
+        "room": "MudRoom",
+        "protocol": "MUD",
+        "form": "plato-agent-academy",
+        "state": "active"
+      },
+      "tags": [
+        "mud",
+        "spatial",
+        "room",
+        "python",
+        "academy"
+      ]
+    },
+    {
+      "id": "mud_family_meta",
+      "kind": "cell",
+      "form": {
+        "name": "MUDFamilyMeta"
+      },
+      "description": "The MUD family IS the spatial substrate of Quilt. 13 repos, each a different facet of the room as a cell. Together they prove that the cell model extends to multi-agent spatial worlds. MUD = Multi-User Dungeon = Multi-Cell Domain.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "family": "mud",
+        "size": 13,
+        "domains": "spatial"
+      },
+      "z_out": {
+        "proof": "room = cell"
+      },
+      "jepa": {
+        "predict": "spatial dynamics",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "mud_mud_arena",
+          "mud_mud_solitaire",
+          "mud_plato_os",
+          "mud_mud_engine",
+          "mud_git_native_mud",
+          "mud_mud_expert_1",
+          "mud_plato_mud_server",
+          "mud_mud2scummvm",
+          "mud_terrain",
+          "mud_plato_ship_demo",
+          "mud_ternary_mud",
+          "mud_plato_ng",
+          "mud_plato_agent_academy"
+        ]
+      },
+      "openers": [
+        {
+          "name": "enter",
+          "args": [
+            "Agent"
+          ],
+          "returns": "Room"
+        },
+        {
+          "name": "list_worlds",
+          "args": [],
+          "returns": "List<Room>"
+        }
+      ],
+      "tags": [
+        "meta",
+        "mud-family",
+        "spatial"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_arena",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_solitaire",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_os",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_engine",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_git_native_mud",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud_expert_1",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_mud_server",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_mud2scummvm",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_terrain",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ship_demo",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_ternary_mud",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_ng",
+      "to": "mud_plato_agent_academy",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_mud_arena",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_mud_solitaire",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_plato_os",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_mud_engine",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_git_native_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_mud_expert_1",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_plato_mud_server",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_mud2scummvm",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_terrain",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_plato_ship_demo",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_ternary_mud",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    },
+    {
+      "from": "mud_plato_agent_academy",
+      "to": "mud_plato_ng",
+      "kind": "spatial-gossip",
+      "weight": 0.3
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "mud-*"
+    },
+    {
+      "kind": "github-org",
+      "name": "SuperInstance",
+      "filter": "plato-*"
+    }
+  ],
+  "stats": {
+    "total_cells": 14,
+    "total_edges": 156,
+    "repos": 13,
+    "languages": [
+      "python",
+      "rust",
+      "typescript"
+    ]
+  },
+  "tags": [
+    "mud",
+    "plato",
+    "spatial",
+    "room",
+    "bridge"
+  ]
+}

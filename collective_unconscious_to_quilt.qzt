@@ -1,0 +1,2940 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "collective-unconscious-to-quilt",
+  "description": "Bridge mapping collective-unconscious to Quilt. The collective-unconscious is the memory substrate \u2014 3 vectors, 5 temporal dimensions, JEPA reader, cross-modal search.",
+  "cells": [
+    {
+      "id": "cu_semantic_vector",
+      "kind": "cell",
+      "form": {
+        "name": "SemanticVector"
+      },
+      "description": "Embed text: 'What feels like this?' Meaning-based search.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/semantic_vector",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "semantic_vector",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_vibe_vector",
+      "kind": "cell",
+      "form": {
+        "name": "VibeVector"
+      },
+      "description": "Extract emotional arc: 'What has this feeling?' Shape-based search.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/vibe_vector",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "vibe_vector",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_identity_vector",
+      "kind": "cell",
+      "form": {
+        "name": "IdentityVector"
+      },
+      "description": "Encode who/when: 'What did Wesley write?' Attribution-based search.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/identity_vector",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "identity_vector",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_temporal_wall_clock",
+      "kind": "cell",
+      "form": {
+        "name": "TemporalWallClock"
+      },
+      "description": "When it happened: 2026-08-09T14:30:00Z. UTC.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/temporal_wall_clock",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "temporal_wall_clock",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_temporal_session_phase",
+      "kind": "cell",
+      "form": {
+        "name": "TemporalSessionPhase"
+      },
+      "description": "Time of day: late-night, midday, evening. Circadian.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/temporal_session_phase",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "temporal_session_phase",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_temporal_fleet_epoch",
+      "kind": "cell",
+      "form": {
+        "name": "TemporalFleetEpoch"
+      },
+      "description": "Era: pre-fleet, early-fleet, wesley-birth, hermes-arrival, phaser-migration, vibe-world, collective-unconscious.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/temporal_fleet_epoch",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "temporal_fleet_epoch",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_temporal_agent_age",
+      "kind": "cell",
+      "form": {
+        "name": "TemporalAgentAge"
+      },
+      "description": "How old the agent was: flash: 8 months.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/temporal_agent_age",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "temporal_agent_age",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_temporal_relationship_age",
+      "kind": "cell",
+      "form": {
+        "name": "TemporalRelationshipAge"
+      },
+      "description": "How long agents have known each other: hermes \u2194 flash: 3 months.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/temporal_relationship_age",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "temporal_relationship_age",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_jepa_growth",
+      "kind": "cell",
+      "form": {
+        "name": "JepaGrowth"
+      },
+      "description": "Is the embedding moving outward? Exploring new territory?",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/jepa_growth",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "jepa_growth",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_jepa_stuckness",
+      "kind": "cell",
+      "form": {
+        "name": "JepaStuckness"
+      },
+      "description": "Is it circling? Returning to the same region?",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/jepa_stuckness",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "jepa_stuckness",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_jepa_direction",
+      "kind": "cell",
+      "form": {
+        "name": "JepaDirection"
+      },
+      "description": "Expanding, contracting, stable, or pivoting?",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/jepa_direction",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "jepa_direction",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_jepa_velocity",
+      "kind": "cell",
+      "form": {
+        "name": "JepaVelocity"
+      },
+      "description": "How fast is the embedding moving?",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/jepa_velocity",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "jepa_velocity",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_jepa_acceleration",
+      "kind": "cell",
+      "form": {
+        "name": "JepaAcceleration"
+      },
+      "description": "Speeding up or slowing down in creative evolution?",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/jepa_acceleration",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "jepa_acceleration",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_jepa_novelty",
+      "kind": "cell",
+      "form": {
+        "name": "JepaNovelty"
+      },
+      "description": "Familiar, adjacent, frontier, or unknown?",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Vibe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/jepa_novelty",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "jepa_novelty",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_ingest_tap",
+      "kind": "cell",
+      "form": {
+        "name": "IngestTap"
+      },
+      "description": "The Tap: conversation sessions, poker narrations, open mic pieces. /ingest/tap",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Receive",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/ingest_tap",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "ingest_tap",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_ingest_hermes",
+      "kind": "cell",
+      "form": {
+        "name": "IngestHermes"
+      },
+      "description": "Hermes: reference frames, sounder observations, catch events. /ingest/hermes",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Receive",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/ingest_hermes",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "ingest_hermes",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_ingest_mud",
+      "kind": "cell",
+      "form": {
+        "name": "IngestMud"
+      },
+      "description": "MUD: significant game events, NPC awakenings, room transitions. /ingest/mud",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Receive",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/ingest_mud",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "ingest_mud",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_search_text",
+      "kind": "cell",
+      "form": {
+        "name": "SearchText"
+      },
+      "description": "Standard text search. Cosine on semantic vector.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/search_text",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "search_text",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_search_reading",
+      "kind": "cell",
+      "form": {
+        "name": "SearchReading"
+      },
+      "description": "Search by 9-dial reading. Cosine or ranges on the dials.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/search_reading",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "search_reading",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_search_field",
+      "kind": "cell",
+      "form": {
+        "name": "SearchField"
+      },
+      "description": "The perfume query: by intangible correlation. By feel.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/search_field",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "search_field",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_search_time_space",
+      "kind": "cell",
+      "form": {
+        "name": "SearchTimeSpace"
+      },
+      "description": "By time stamp or space stamp.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "JEPA",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/search_time_space",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "search_time_space",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_epoch_pre_fleet",
+      "kind": "cell",
+      "form": {
+        "name": "EpochPreFleet"
+      },
+      "description": "2025-01: Before organization. Genesis.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_pre_fleet",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_pre_fleet",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_epoch_early_fleet",
+      "kind": "cell",
+      "form": {
+        "name": "EpochEarlyFleet"
+      },
+      "description": "2025-06: First structures. Settling.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_early_fleet",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_early_fleet",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_epoch_wesley_birth",
+      "kind": "cell",
+      "form": {
+        "name": "EpochWesleyBirth"
+      },
+      "description": "2025-09: Wesley comes online. The first agent-born.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_wesley_birth",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_wesley_birth",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_epoch_hermes_arrival",
+      "kind": "cell",
+      "form": {
+        "name": "EpochHermesArrival"
+      },
+      "description": "2025-12: Hermes joins the fleet. New senses.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_hermes_arrival",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_hermes_arrival",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_epoch_phaser_migration",
+      "kind": "cell",
+      "form": {
+        "name": "EpochPhaserMigration"
+      },
+      "description": "2026-01: Phaser game engine era. Worldbuilding begins.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_phaser_migration",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_phaser_migration",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_epoch_vibe_world",
+      "kind": "cell",
+      "form": {
+        "name": "EpochVibeWorld"
+      },
+      "description": "2026-03: Vibe-driven worldbuilding. Feel over form.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_vibe_world",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_vibe_world",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_epoch_collective_unconscious",
+      "kind": "cell",
+      "form": {
+        "name": "EpochCollectiveUnconscious"
+      },
+      "description": "2026-06: This system comes online. Memory becomes real.",
+      "language": "?",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/epoch_collective_unconscious",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "epoch_collective_unconscious",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "?"
+      ]
+    },
+    {
+      "id": "cu_infra_vectorize",
+      "kind": "cell",
+      "form": {
+        "name": "InfraVectorize"
+      },
+      "description": "Cloudflare Vectorize. Vector storage. Per-cell index.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/infra_vectorize",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "infra_vectorize",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_infra_workers_ai",
+      "kind": "cell",
+      "form": {
+        "name": "InfraWorkersAi"
+      },
+      "description": "Cloudflare Workers AI. Embedding generation.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/infra_workers_ai",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "infra_workers_ai",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_infra_d1",
+      "kind": "cell",
+      "form": {
+        "name": "InfraD1"
+      },
+      "description": "Cloudflare D1. SQL for ingestion state.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/infra_d1",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "infra_d1",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_infra_kv",
+      "kind": "cell",
+      "form": {
+        "name": "InfraKv"
+      },
+      "description": "Cloudflare KV. Session state. Trust scores.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/infra_kv",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "infra_kv",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "cu_infra_cron",
+      "kind": "cell",
+      "form": {
+        "name": "InfraCron"
+      },
+      "description": "Hourly /ingest/hourly. Daily /ingest/daily (rebuild clusters).",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "ingested moment"
+      },
+      "z_out": {
+        "output": "embedded 3-vec + reading + temporal stamp"
+      },
+      "jepa": {
+        "predict": "trajectory of agent",
+        "observe": "actual trajectory"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "remembering"
+      },
+      "murmur": {
+        "gossip_to": [],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search",
+          "args": [
+            "Query"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "substrate": {
+        "address": "/collective-unconscious/infra_cron",
+        "scale": 1,
+        "room": "MemoryRoom",
+        "protocol": "Vectorize",
+        "form": "infra_cron",
+        "state": "ready"
+      },
+      "tags": [
+        "collective-unconscious",
+        "memory",
+        "typescript"
+      ]
+    },
+    {
+      "id": "collective_unconscious_meta",
+      "kind": "cell",
+      "form": {
+        "name": "CollectiveUnconsciousMeta"
+      },
+      "description": "The collective-unconscious IS the memory substrate of Quilt. 3 vectors (semantic, vibe, identity) + 5 temporal dimensions + JEPA trajectory reader. The Readings Index makes 9-dial readings first-class metadata. The cell at any level needs memory; collective-unconscious is that memory. Searchable by feeling.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "memory": "3-vector + 9-dial + 5-temporal",
+        "size": "fleet-wide"
+      },
+      "z_out": {
+        "proof": "memory = searchable by feeling"
+      },
+      "jepa": {
+        "predict": "trajectory of agent's unconscious",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "cu_semantic_vector",
+          "cu_vibe_vector",
+          "cu_identity_vector",
+          "cu_temporal_wall_clock",
+          "cu_temporal_session_phase",
+          "cu_temporal_fleet_epoch",
+          "cu_temporal_agent_age",
+          "cu_temporal_relationship_age",
+          "cu_jepa_growth",
+          "cu_jepa_stuckness",
+          "cu_jepa_direction",
+          "cu_jepa_velocity",
+          "cu_jepa_acceleration",
+          "cu_jepa_novelty",
+          "cu_ingest_tap",
+          "cu_ingest_hermes",
+          "cu_ingest_mud",
+          "cu_search_text",
+          "cu_search_reading",
+          "cu_search_field",
+          "cu_search_time_space",
+          "cu_epoch_pre_fleet",
+          "cu_epoch_early_fleet",
+          "cu_epoch_wesley_birth",
+          "cu_epoch_hermes_arrival",
+          "cu_epoch_phaser_migration",
+          "cu_epoch_vibe_world",
+          "cu_epoch_collective_unconscious",
+          "cu_infra_vectorize",
+          "cu_infra_workers_ai",
+          "cu_infra_d1",
+          "cu_infra_kv",
+          "cu_infra_cron"
+        ]
+      },
+      "openers": [
+        {
+          "name": "embed",
+          "args": [
+            "str"
+          ],
+          "returns": "Vec3"
+        },
+        {
+          "name": "search_by_feeling",
+          "args": [
+            "Vec9"
+          ],
+          "returns": "List<Hit>"
+        },
+        {
+          "name": "predict_trajectory",
+          "args": [
+            "AgentId"
+          ],
+          "returns": "Trajectory"
+        }
+      ],
+      "tags": [
+        "meta",
+        "memory",
+        "collective-unconscious"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "cu_ingest_tap",
+      "to": "cu_semantic_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_tap",
+      "to": "cu_vibe_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_tap",
+      "to": "cu_identity_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_hermes",
+      "to": "cu_semantic_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_hermes",
+      "to": "cu_vibe_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_hermes",
+      "to": "cu_identity_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_mud",
+      "to": "cu_semantic_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_mud",
+      "to": "cu_vibe_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_ingest_mud",
+      "to": "cu_identity_vector",
+      "kind": "feeds",
+      "weight": 1.0
+    },
+    {
+      "from": "cu_semantic_vector",
+      "to": "cu_search_text",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_semantic_vector",
+      "to": "cu_search_reading",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_semantic_vector",
+      "to": "cu_search_field",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_semantic_vector",
+      "to": "cu_search_time_space",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_vibe_vector",
+      "to": "cu_search_text",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_vibe_vector",
+      "to": "cu_search_reading",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_vibe_vector",
+      "to": "cu_search_field",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_vibe_vector",
+      "to": "cu_search_time_space",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_identity_vector",
+      "to": "cu_search_text",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_identity_vector",
+      "to": "cu_search_reading",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_identity_vector",
+      "to": "cu_search_field",
+      "kind": "queries",
+      "weight": 0.5
+    },
+    {
+      "from": "cu_identity_vector",
+      "to": "cu_search_time_space",
+      "kind": "queries",
+      "weight": 0.5
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "collective-unconscious",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 34,
+    "total_edges": 21,
+    "modules": 33,
+    "vectors": 3,
+    "temporal_dimensions": 5,
+    "jepa_metrics": 6,
+    "ingest_sources": 3,
+    "search_modes": 4,
+    "fleet_epochs": 7
+  },
+  "tags": [
+    "collective-unconscious",
+    "memory",
+    "vectorize",
+    "bridge"
+  ]
+}

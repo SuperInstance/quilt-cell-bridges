@@ -1,0 +1,1546 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "superinstance-agent-to-quilt",
+  "description": "Bridge mapping superinstance-agent to Quilt. The discovery substrate: 2-stage RAG over 1,600+ Rust crates. BGE-small + Vectorize + Llama 3.1 8B.",
+  "cells": [
+    {
+      "id": "sa_rag_embed_query",
+      "kind": "cell",
+      "form": {
+        "name": "RagEmbedQuery"
+      },
+      "description": "BGE-small embedding of user question \u2192 384-dim vector",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/rag_embed_query",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "rag_embed_query",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_rag_vectorize",
+      "kind": "cell",
+      "form": {
+        "name": "RagVectorize"
+      },
+      "description": "Vectorize cosine search \u2192 top-K crates (HNSW index, O(log N))",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/rag_vectorize",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "rag_vectorize",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_rag_context",
+      "kind": "cell",
+      "form": {
+        "name": "RagContext"
+      },
+      "description": "Assemble context: system + top-K descriptions + question",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/rag_context",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "rag_context",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_rag_generate",
+      "kind": "cell",
+      "form": {
+        "name": "RagGenerate"
+      },
+      "description": "Llama 3.1 8B with T=0.3 (factual). Workers AI.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/rag_generate",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "rag_generate",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_endpoint_ask",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointAsk"
+      },
+      "description": "POST /ask: natural-language Q&A. Returns answer + citations.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/endpoint_ask",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "endpoint_ask",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_endpoint_recommend",
+      "kind": "cell",
+      "form": {
+        "name": "EndpointRecommend"
+      },
+      "description": "POST /recommend: ranked crate suggestions for a task.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/endpoint_recommend",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "endpoint_recommend",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_infra_vectorize",
+      "kind": "cell",
+      "form": {
+        "name": "InfraVectorize"
+      },
+      "description": "Cloudflare Vectorize: fleet-crates index. 1600+ vectors.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/infra_vectorize",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "infra_vectorize",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_infra_workers_ai",
+      "kind": "cell",
+      "form": {
+        "name": "InfraWorkersAi"
+      },
+      "description": "Cloudflare Workers AI: BGE-small + Llama 3.1 8B.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/infra_workers_ai",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "infra_workers_ai",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_infra_worker",
+      "kind": "cell",
+      "form": {
+        "name": "InfraWorker"
+      },
+      "description": "Cloudflare Worker: orchestrator. npm install + wrangler deploy.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/infra_worker",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "infra_worker",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_math_cosine",
+      "kind": "cell",
+      "form": {
+        "name": "MathCosine"
+      },
+      "description": "cos(q,c) = (q\u00b7c) / (||q|| ||c||). Standard cosine similarity.",
+      "language": "typescript",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/math_cosine",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "math_cosine",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_math_complexity",
+      "kind": "cell",
+      "form": {
+        "name": "MathComplexity"
+      },
+      "description": "Embed O(V), search O(log N), generate O(T\u00b2), context O(K).",
+      "language": "typescript",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/math_complexity",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "math_complexity",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_cost_embed",
+      "kind": "cell",
+      "form": {
+        "name": "CostEmbed"
+      },
+      "description": "Embed: ~5ms. Free (Workers AI).",
+      "language": "typescript",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/cost_embed",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "cost_embed",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_cost_search",
+      "kind": "cell",
+      "form": {
+        "name": "CostSearch"
+      },
+      "description": "Vectorize: ~2ms. $0.30/M queries.",
+      "language": "typescript",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/cost_search",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "cost_search",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_cost_llm",
+      "kind": "cell",
+      "form": {
+        "name": "CostLlm"
+      },
+      "description": "LLM: ~500ms. $0.0001/1K tokens.",
+      "language": "typescript",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/cost_llm",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "cost_llm",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_cost_total",
+      "kind": "cell",
+      "form": {
+        "name": "CostTotal"
+      },
+      "description": "Total: ~510ms. ~$0.0001/query.",
+      "language": "typescript",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/cost_total",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "cost_total",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "typescript"
+      ]
+    },
+    {
+      "id": "sa_ecosystem_crates",
+      "kind": "cell",
+      "form": {
+        "name": "EcosystemCrates"
+      },
+      "description": "1,600+ Rust crates: networking, consensus, spectral, ternary, etc.",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/ecosystem_crates",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "ecosystem_crates",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "rust"
+      ]
+    },
+    {
+      "id": "sa_ecosystem_discovery",
+      "kind": "cell",
+      "form": {
+        "name": "EcosystemDiscovery"
+      },
+      "description": "Discovery: 'which crate handles consensus?' \u2192 raft-cluster, paxos-fleet",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/ecosystem_discovery",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "ecosystem_discovery",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "rust"
+      ]
+    },
+    {
+      "id": "sa_ecosystem_understanding",
+      "kind": "cell",
+      "form": {
+        "name": "EcosystemUnderstanding"
+      },
+      "description": "Understanding: 'what does riff-benchmark-hashing do?' \u2192 RAG explanation",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/ecosystem_understanding",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "ecosystem_understanding",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "rust"
+      ]
+    },
+    {
+      "id": "sa_ecosystem_recommendation",
+      "kind": "cell",
+      "form": {
+        "name": "EcosystemRecommendation"
+      },
+      "description": "Recommendation: 'I need a rate-limited API gateway' \u2192 ranked list",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "user question"
+      },
+      "z_out": {
+        "output": "answer + citations"
+      },
+      "jepa": {
+        "predict": "relevant crates",
+        "observe": "actual relevant crates"
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "substrate": {
+        "address": "/superinstance-agent/ecosystem_recommendation",
+        "scale": 1,
+        "room": "DiscoveryRoom",
+        "protocol": "RAG",
+        "form": "ecosystem_recommendation",
+        "state": "ready"
+      },
+      "tags": [
+        "superinstance-agent",
+        "discovery",
+        "rag",
+        "rust"
+      ]
+    },
+    {
+      "id": "superinstance_agent_meta",
+      "kind": "cell",
+      "form": {
+        "name": "SuperInstanceAgentMeta"
+      },
+      "description": "superinstance-agent IS the discovery substrate of Quilt. 2-stage RAG over 1,600+ Rust crates. BGE-small + Vectorize + Llama 3.1 8B. $0.0001 per query. The cell at any level needs to discover other cells; superinstance-agent is that discovery.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "crates": "1,600+",
+        "index": "Vectorize",
+        "embeddings": "BGE-384"
+      },
+      "z_out": {
+        "answer": "grounded in citations"
+      },
+      "jepa": {
+        "predict": "relevant crate",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.4,
+        "eta": 0.6
+      },
+      "gc": {
+        "phase": "discovering"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "sa_rag_embed_query",
+          "sa_rag_vectorize",
+          "sa_rag_context",
+          "sa_rag_generate",
+          "sa_endpoint_ask",
+          "sa_endpoint_recommend",
+          "sa_infra_vectorize",
+          "sa_infra_workers_ai",
+          "sa_infra_worker",
+          "sa_math_cosine",
+          "sa_math_complexity",
+          "sa_cost_embed",
+          "sa_cost_search",
+          "sa_cost_llm",
+          "sa_cost_total",
+          "sa_ecosystem_crates",
+          "sa_ecosystem_discovery",
+          "sa_ecosystem_understanding",
+          "sa_ecosystem_recommendation"
+        ]
+      },
+      "openers": [
+        {
+          "name": "ask",
+          "args": [
+            "str"
+          ],
+          "returns": "Answer"
+        },
+        {
+          "name": "recommend",
+          "args": [
+            "str"
+          ],
+          "returns": "List<Crate>"
+        }
+      ],
+      "tags": [
+        "meta",
+        "discovery",
+        "rag"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "sa_rag_embed_query",
+      "to": "sa_endpoint_ask",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "sa_rag_vectorize",
+      "to": "sa_endpoint_ask",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "sa_rag_context",
+      "to": "sa_endpoint_ask",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "sa_rag_generate",
+      "to": "sa_endpoint_ask",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "sa_infra_vectorize",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_infra_workers_ai",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_infra_worker",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_math_cosine",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_math_complexity",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_cost_embed",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_cost_search",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_cost_llm",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    },
+    {
+      "from": "sa_cost_total",
+      "to": "sa_rag_embed_query",
+      "kind": "supports",
+      "weight": 0.5
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "superinstance-agent",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 20,
+    "total_edges": 13,
+    "modules": 19,
+    "crates_indexed": 1600,
+    "embedding_dim": 384,
+    "cost_per_query": "$0.0001",
+    "latency_ms": 510
+  },
+  "tags": [
+    "superinstance-agent",
+    "discovery",
+    "rag",
+    "bridge"
+  ]
+}

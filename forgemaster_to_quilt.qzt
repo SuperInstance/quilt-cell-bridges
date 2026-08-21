@@ -1,0 +1,1552 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "forgemaster-to-quilt",
+  "description": "Bridge mapping forgemaster to Quilt. forgemaster is the proof-carrying compiler \u2014 takes intent, returns build with guarantees.",
+  "cells": [
+    {
+      "id": "forge_core_forge",
+      "kind": "cell",
+      "form": {
+        "name": "CoreForge"
+      },
+      "description": "Forge.compile(requirements) \u2014 the main compiler. Takes intent, returns build.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/core_forge",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "core_forge",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_core_requirements",
+      "kind": "cell",
+      "form": {
+        "name": "CoreRequirements"
+      },
+      "description": "Requirement specification: task, constraints (memory, latency, languages).",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/core_requirements",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "core_requirements",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_core_build",
+      "kind": "cell",
+      "form": {
+        "name": "CoreBuild"
+      },
+      "description": "Build result: components list, execution plan, dependencies.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/core_build",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "core_build",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_constraints_memory",
+      "kind": "cell",
+      "form": {
+        "name": "ConstraintsMemory"
+      },
+      "description": "max_memory_mb: hard cap on memory.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/constraints_memory",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "constraints_memory",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_constraints_latency",
+      "kind": "cell",
+      "form": {
+        "name": "ConstraintsLatency"
+      },
+      "description": "latency_ms: hard cap on response time.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/constraints_latency",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "constraints_latency",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_constraints_languages",
+      "kind": "cell",
+      "form": {
+        "name": "ConstraintsLanguages"
+      },
+      "description": "languages: ['rust', 'python', ...] which langs to use.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/constraints_languages",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "constraints_languages",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_constraints_safety",
+      "kind": "cell",
+      "form": {
+        "name": "ConstraintsSafety"
+      },
+      "description": "Safety constraints from guard-constraints repo.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/constraints_safety",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "constraints_safety",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_fleet_cocapn",
+      "kind": "cell",
+      "form": {
+        "name": "FleetCocapn"
+      },
+      "description": "Cocapn fleet integration: agents, fleets, harnesses.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/fleet_cocapn",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "fleet_cocapn",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_fleet_plato",
+      "kind": "cell",
+      "form": {
+        "name": "FleetPlato"
+      },
+      "description": "PLATO bridge: curriculum-aware compilation.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/fleet_plato",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "fleet_plato",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_fleet_agent_forge",
+      "kind": "cell",
+      "form": {
+        "name": "FleetAgentForge"
+      },
+      "description": "agent-forge: universal agent framework.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/fleet_agent_forge",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "fleet_agent_forge",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_fleet_captain",
+      "kind": "cell",
+      "form": {
+        "name": "FleetCaptain"
+      },
+      "description": "captain: fleet commanding.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/fleet_captain",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "fleet_captain",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_fleet_cartridge_mcp",
+      "kind": "cell",
+      "form": {
+        "name": "FleetCartridgeMcp"
+      },
+      "description": "cartridge-mcp: swappable behavior cartridges.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/fleet_cartridge_mcp",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "fleet_cartridge_mcp",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_proof_carrying",
+      "kind": "cell",
+      "form": {
+        "name": "ProofCarrying"
+      },
+      "description": "Proof-carrying: components come with correctness guarantees.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/proof_carrying",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "proof_carrying",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_proof_ptp_clock",
+      "kind": "cell",
+      "form": {
+        "name": "ProofPtpClock"
+      },
+      "description": "PTP clock synchronization: validated experimentally.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/proof_ptp_clock",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "proof_ptp_clock",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_proof_heterogeneous",
+      "kind": "cell",
+      "form": {
+        "name": "ProofHeterogeneous"
+      },
+      "description": "Heterogeneous fleet configurations: validated.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/proof_heterogeneous",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "proof_heterogeneous",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_output_components",
+      "kind": "cell",
+      "form": {
+        "name": "OutputComponents"
+      },
+      "description": "List of components: [HealthChecker, AlertEngine, Dashboard, ...]",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/output_components",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "output_components",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_output_plan",
+      "kind": "cell",
+      "form": {
+        "name": "OutputPlan"
+      },
+      "description": "Execution plan with dependencies and ordering.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/output_plan",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "output_plan",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "python"
+      ]
+    },
+    {
+      "id": "forge_build_docker",
+      "kind": "cell",
+      "form": {
+        "name": "BuildDocker"
+      },
+      "description": "Docker-ready: Dockerfile + Makefile for reproducible builds.",
+      "language": "docker",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/build_docker",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "build_docker",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "docker"
+      ]
+    },
+    {
+      "id": "forge_build_make",
+      "kind": "cell",
+      "form": {
+        "name": "BuildMake"
+      },
+      "description": "make setup, make run \u2014 standard build system.",
+      "language": "make",
+      "primitives": [
+        "Spawn",
+        "Mutate",
+        "Send"
+      ],
+      "z_in": {
+        "input": "intent (high-level requirement)"
+      },
+      "z_out": {
+        "output": "build (components + plan + proofs)"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "observe": "actual build"
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "substrate": {
+        "address": "/forgemaster/build_make",
+        "scale": 0,
+        "room": "CompilationRoom",
+        "protocol": "Forge",
+        "form": "build_make",
+        "state": "ready"
+      },
+      "tags": [
+        "forgemaster",
+        "compiler",
+        "proof-carrying",
+        "make"
+      ]
+    },
+    {
+      "id": "forgemaster_meta",
+      "kind": "cell",
+      "form": {
+        "name": "ForgemasterMeta"
+      },
+      "description": "forgemaster IS the proof-carrying compiler of Quilt. Constraint-aware, proof-carrying, fleet-integrated. Takes intent \u2192 components with guarantees. The cell at level 3-4 needs a compiler; forgemaster is that compiler.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "intent": "high-level",
+        "constraints": "hard"
+      },
+      "z_out": {
+        "build": "components + plan + proofs"
+      },
+      "jepa": {
+        "predict": "valid build",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.9,
+        "eta": 0.1
+      },
+      "gc": {
+        "phase": "compiling"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "forge_core_forge",
+          "forge_core_requirements",
+          "forge_core_build",
+          "forge_constraints_memory",
+          "forge_constraints_latency",
+          "forge_constraints_languages",
+          "forge_constraints_safety",
+          "forge_fleet_cocapn",
+          "forge_fleet_plato",
+          "forge_fleet_agent_forge",
+          "forge_fleet_captain",
+          "forge_fleet_cartridge_mcp",
+          "forge_proof_carrying",
+          "forge_proof_ptp_clock",
+          "forge_proof_heterogeneous",
+          "forge_output_components",
+          "forge_output_plan",
+          "forge_build_docker",
+          "forge_build_make"
+        ]
+      },
+      "openers": [
+        {
+          "name": "compile",
+          "args": [
+            "Requirements"
+          ],
+          "returns": "Build"
+        },
+        {
+          "name": "verify",
+          "args": [
+            "Build"
+          ],
+          "returns": "Proof"
+        }
+      ],
+      "tags": [
+        "meta",
+        "compiler",
+        "forgemaster"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "forge_constraints_memory",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "forge_constraints_latency",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "forge_constraints_languages",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "forge_constraints_safety",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "forge_fleet_cocapn",
+      "to": "forge_core_forge",
+      "kind": "integrates",
+      "weight": 0.7
+    },
+    {
+      "from": "forge_fleet_plato",
+      "to": "forge_core_forge",
+      "kind": "integrates",
+      "weight": 0.7
+    },
+    {
+      "from": "forge_fleet_agent_forge",
+      "to": "forge_core_forge",
+      "kind": "integrates",
+      "weight": 0.7
+    },
+    {
+      "from": "forge_fleet_captain",
+      "to": "forge_core_forge",
+      "kind": "integrates",
+      "weight": 0.7
+    },
+    {
+      "from": "forge_fleet_cartridge_mcp",
+      "to": "forge_core_forge",
+      "kind": "integrates",
+      "weight": 0.7
+    },
+    {
+      "from": "forge_proof_carrying",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "forge_proof_ptp_clock",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    },
+    {
+      "from": "forge_proof_heterogeneous",
+      "to": "forge_core_forge",
+      "kind": "feeds",
+      "weight": 0.9
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "forgemaster",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 20,
+    "total_edges": 12,
+    "modules": 19,
+    "size_kb": 247469
+  },
+  "tags": [
+    "forgemaster",
+    "compiler",
+    "proof-carrying",
+    "bridge"
+  ]
+}

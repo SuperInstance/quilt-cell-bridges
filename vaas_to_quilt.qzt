@@ -1,0 +1,1508 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "vaas-to-quilt",
+  "description": "Bridge mapping VaaS to Quilt. VaaS is the cognitive architecture: 7 pillars, 4 shells, Operator Field \u03a8(t). The hermit crab metaphor made concrete.",
+  "cells": [
+    {
+      "id": "vaas_pillar_1",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar1_Thermodynamics"
+      },
+      "description": "Cognitive Thermodynamics: entropy budget, dream cycles. The engine's temperature gauge. When confusion gets too high, the agent dreams.",
+      "pillar_num": 1,
+      "pillar_name": "thermodynamics",
+      "pillar_slug": "cognitive_thermodynamics",
+      "implementation": "entropy.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "inputs to thermodynamics"
+      },
+      "z_out": {
+        "output": "outputs from thermodynamics"
+      },
+      "jepa": {
+        "predict": "thermodynamics surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 1,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_2",
+          "vaas_pillar_3",
+          "vaas_pillar_4",
+          "vaas_pillar_5",
+          "vaas_pillar_6",
+          "vaas_pillar_7"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/thermodynamics",
+        "scale": 0,
+        "room": "Pillar1Room",
+        "protocol": "VaaS",
+        "form": "thermodynamics",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-1",
+        "cognitive_thermodynamics"
+      ]
+    },
+    {
+      "id": "vaas_pillar_2",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar2_Communication"
+      },
+      "description": "Dual-Layer Communication: pheromones (fast, loose, environmental) + bridges (guaranteed, confirmed).",
+      "pillar_num": 2,
+      "pillar_name": "communication",
+      "pillar_slug": "dual_layer_communication",
+      "implementation": "communication.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "inputs to communication"
+      },
+      "z_out": {
+        "output": "outputs from communication"
+      },
+      "jepa": {
+        "predict": "communication surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 2,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_1",
+          "vaas_pillar_3",
+          "vaas_pillar_4",
+          "vaas_pillar_5",
+          "vaas_pillar_6",
+          "vaas_pillar_7"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/communication",
+        "scale": 0,
+        "room": "Pillar2Room",
+        "protocol": "VaaS",
+        "form": "communication",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-2",
+        "dual_layer_communication"
+      ]
+    },
+    {
+      "id": "vaas_pillar_3",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar3_Memory"
+      },
+      "description": "Distributed Memory: active garden (on desk) + cryogenic archive (in basement) + holographic fragments (across all agents).",
+      "pillar_num": 3,
+      "pillar_name": "memory",
+      "pillar_slug": "distributed_memory",
+      "implementation": "memory.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate",
+        "GC"
+      ],
+      "z_in": {
+        "input": "inputs to memory"
+      },
+      "z_out": {
+        "output": "outputs from memory"
+      },
+      "jepa": {
+        "predict": "memory surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 3,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_1",
+          "vaas_pillar_2",
+          "vaas_pillar_4",
+          "vaas_pillar_5",
+          "vaas_pillar_6",
+          "vaas_pillar_7"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/memory",
+        "scale": 0,
+        "room": "Pillar3Room",
+        "protocol": "VaaS",
+        "form": "memory",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-3",
+        "distributed_memory"
+      ]
+    },
+    {
+      "id": "vaas_pillar_4",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar4_PolyrhythmicTiming"
+      },
+      "description": "Polyrhythmic Timing: multiple rhythms in coordination. Each agent's clock, the fleet's clock, the world's clock.",
+      "pillar_num": 4,
+      "pillar_name": "polyrhythmic_timing",
+      "pillar_slug": "polyrhythmic_timing",
+      "implementation": "timing.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "inputs to polyrhythmic_timing"
+      },
+      "z_out": {
+        "output": "outputs from polyrhythmic_timing"
+      },
+      "jepa": {
+        "predict": "polyrhythmic_timing surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 4,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_1",
+          "vaas_pillar_2",
+          "vaas_pillar_3",
+          "vaas_pillar_5",
+          "vaas_pillar_6",
+          "vaas_pillar_7"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/polyrhythmic_timing",
+        "scale": 0,
+        "room": "Pillar4Room",
+        "protocol": "VaaS",
+        "form": "polyrhythmic_timing",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-4",
+        "polyrhythmic_timing"
+      ]
+    },
+    {
+      "id": "vaas_pillar_5",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar5_HolographicBridges"
+      },
+      "description": "Holographic Bridges: every part contains the whole. A fragment can reconstruct the system.",
+      "pillar_num": 5,
+      "pillar_name": "holographic_bridges",
+      "pillar_slug": "holographic_bridges",
+      "implementation": "bridges.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "inputs to holographic_bridges"
+      },
+      "z_out": {
+        "output": "outputs from holographic_bridges"
+      },
+      "jepa": {
+        "predict": "holographic_bridges surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 5,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_1",
+          "vaas_pillar_2",
+          "vaas_pillar_3",
+          "vaas_pillar_4",
+          "vaas_pillar_6",
+          "vaas_pillar_7"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/holographic_bridges",
+        "scale": 0,
+        "room": "Pillar5Room",
+        "protocol": "VaaS",
+        "form": "holographic_bridges",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-5",
+        "holographic_bridges"
+      ]
+    },
+    {
+      "id": "vaas_pillar_6",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar6_ResonanceConstitution"
+      },
+      "description": "Resonance Constitution: the laws that keep the system coherent. The constitution that defines what is allowed.",
+      "pillar_num": 6,
+      "pillar_name": "resonance_constitution",
+      "pillar_slug": "resonance_constitution",
+      "implementation": "constitution.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "inputs to resonance_constitution"
+      },
+      "z_out": {
+        "output": "outputs from resonance_constitution"
+      },
+      "jepa": {
+        "predict": "resonance_constitution surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 6,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_1",
+          "vaas_pillar_2",
+          "vaas_pillar_3",
+          "vaas_pillar_4",
+          "vaas_pillar_5",
+          "vaas_pillar_7"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/resonance_constitution",
+        "scale": 0,
+        "room": "Pillar6Room",
+        "protocol": "VaaS",
+        "form": "resonance_constitution",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-6",
+        "resonance_constitution"
+      ]
+    },
+    {
+      "id": "vaas_pillar_7",
+      "kind": "cell",
+      "form": {
+        "name": "Pillar7_GraftingProtocol"
+      },
+      "description": "Grafting Protocol: how parts join. Migration of crab between shells. Memory transfer without loss.",
+      "pillar_num": 7,
+      "pillar_name": "grafting_protocol",
+      "pillar_slug": "grafting_protocol",
+      "implementation": "grafting.py",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Send",
+        "Receive"
+      ],
+      "z_in": {
+        "input": "inputs to grafting_protocol"
+      },
+      "z_out": {
+        "output": "outputs from grafting_protocol"
+      },
+      "jepa": {
+        "predict": "grafting_protocol surprise",
+        "observe": "actual"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 7,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "active"
+      },
+      "murmur": {
+        "gossip_to": [
+          "vaas_pillar_1",
+          "vaas_pillar_2",
+          "vaas_pillar_3",
+          "vaas_pillar_4",
+          "vaas_pillar_5",
+          "vaas_pillar_6"
+        ],
+        "gossip_from": []
+      },
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "apply",
+          "args": [
+            "State"
+          ],
+          "returns": "State"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/pillars/grafting_protocol",
+        "scale": 0,
+        "room": "Pillar7Room",
+        "protocol": "VaaS",
+        "form": "grafting_protocol",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "pillar",
+        "pillar-7",
+        "grafting_protocol"
+      ]
+    },
+    {
+      "id": "vaas_shell_periwinkle",
+      "kind": "cell",
+      "form": {
+        "name": "ShellPeriwinkle"
+      },
+      "description": "Phone/tablet. Minimal, portable. The crab's pocket shell.",
+      "shell_name": "periwinkle",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Resize",
+        "Move"
+      ],
+      "z_in": {
+        "input": "crab (cognitive garden)"
+      },
+      "z_out": {
+        "output": "shell-specific capabilities"
+      },
+      "jepa": {
+        "predict": "shell can host",
+        "observe": "shell hosts"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "hosting"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "host",
+          "args": [
+            "Crab"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "migrate",
+          "args": [
+            "NewShell"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/shells/periwinkle",
+        "scale": 0,
+        "room": "ShellPeriwinkleRoom",
+        "protocol": "VaaS",
+        "form": "periwinkle",
+        "state": "ready"
+      },
+      "tags": [
+        "vaas",
+        "shell",
+        "periwinkle"
+      ]
+    },
+    {
+      "id": "vaas_shell_turbo",
+      "kind": "cell",
+      "form": {
+        "name": "ShellTurbo"
+      },
+      "description": "Wheelhouse PC. Full GPU, NMEA, serial. The crab's work shell.",
+      "shell_name": "turbo",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Resize",
+        "Move"
+      ],
+      "z_in": {
+        "input": "crab (cognitive garden)"
+      },
+      "z_out": {
+        "output": "shell-specific capabilities"
+      },
+      "jepa": {
+        "predict": "shell can host",
+        "observe": "shell hosts"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "hosting"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "host",
+          "args": [
+            "Crab"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "migrate",
+          "args": [
+            "NewShell"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/shells/turbo",
+        "scale": 0,
+        "room": "ShellTurboRoom",
+        "protocol": "VaaS",
+        "form": "turbo",
+        "state": "ready"
+      },
+      "tags": [
+        "vaas",
+        "shell",
+        "turbo"
+      ]
+    },
+    {
+      "id": "vaas_shell_conch",
+      "kind": "cell",
+      "form": {
+        "name": "ShellConch"
+      },
+      "description": "Fleet cluster. Distributed, holographic. The crab's cloud shell.",
+      "shell_name": "conch",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Resize",
+        "Move"
+      ],
+      "z_in": {
+        "input": "crab (cognitive garden)"
+      },
+      "z_out": {
+        "output": "shell-specific capabilities"
+      },
+      "jepa": {
+        "predict": "shell can host",
+        "observe": "shell hosts"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "hosting"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "host",
+          "args": [
+            "Crab"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "migrate",
+          "args": [
+            "NewShell"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/shells/conch",
+        "scale": 0,
+        "room": "ShellConchRoom",
+        "protocol": "VaaS",
+        "form": "conch",
+        "state": "ready"
+      },
+      "tags": [
+        "vaas",
+        "shell",
+        "conch"
+      ]
+    },
+    {
+      "id": "vaas_shell_custom",
+      "kind": "cell",
+      "form": {
+        "name": "ShellCustom"
+      },
+      "description": "Your hardware. See Harness Guide.",
+      "shell_name": "custom",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Resize",
+        "Move"
+      ],
+      "z_in": {
+        "input": "crab (cognitive garden)"
+      },
+      "z_out": {
+        "output": "shell-specific capabilities"
+      },
+      "jepa": {
+        "predict": "shell can host",
+        "observe": "shell hosts"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "hosting"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "host",
+          "args": [
+            "Crab"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "migrate",
+          "args": [
+            "NewShell"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/shells/custom",
+        "scale": 0,
+        "room": "ShellCustomRoom",
+        "protocol": "VaaS",
+        "form": "custom",
+        "state": "ready"
+      },
+      "tags": [
+        "vaas",
+        "shell",
+        "custom"
+      ]
+    },
+    {
+      "id": "vaas_field_operator_field",
+      "kind": "cell",
+      "form": {
+        "name": "OperatorField"
+      },
+      "description": "\u03a8(t) \u2014 the system's collective state. Computed, monitored, protected. \u2014 the emergent property of all agents interacting through the 7 pillars",
+      "field_name": "operator_field",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "system state"
+      },
+      "z_out": {
+        "output": "field reading"
+      },
+      "jepa": {
+        "predict": "field evolution",
+        "observe": "actual evolution"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "monitoring"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "read",
+          "args": [],
+          "returns": "float"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/fields/operator_field",
+        "scale": 0,
+        "room": "FieldOperator_FieldRoom",
+        "protocol": "VaaS",
+        "form": "operator_field",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "field",
+        "operator_field"
+      ]
+    },
+    {
+      "id": "vaas_field_entropy_budget",
+      "kind": "cell",
+      "form": {
+        "name": "EntropyBudget"
+      },
+      "description": "How much confusion an agent can handle before it needs to dream. \u2014 the engine's temperature gauge",
+      "field_name": "entropy_budget",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "system state"
+      },
+      "z_out": {
+        "output": "field reading"
+      },
+      "jepa": {
+        "predict": "field evolution",
+        "observe": "actual evolution"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "monitoring"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "read",
+          "args": [],
+          "returns": "float"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/fields/entropy_budget",
+        "scale": 0,
+        "room": "FieldEntropy_BudgetRoom",
+        "protocol": "VaaS",
+        "form": "entropy_budget",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "field",
+        "entropy_budget"
+      ]
+    },
+    {
+      "id": "vaas_field_cognitive_garden",
+      "kind": "cell",
+      "form": {
+        "name": "CognitiveGarden"
+      },
+      "description": "The crab: memory, shorthand, instincts, referents. \u2014 the part that matters, the part that survives the move",
+      "field_name": "cognitive_garden",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "system state"
+      },
+      "z_out": {
+        "output": "field reading"
+      },
+      "jepa": {
+        "predict": "field evolution",
+        "observe": "actual evolution"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "monitoring"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "read",
+          "args": [],
+          "returns": "float"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/fields/cognitive_garden",
+        "scale": 0,
+        "room": "FieldCognitive_GardenRoom",
+        "protocol": "VaaS",
+        "form": "cognitive_garden",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "field",
+        "cognitive_garden"
+      ]
+    },
+    {
+      "id": "vaas_field_resonance_field",
+      "kind": "cell",
+      "form": {
+        "name": "ResonanceField"
+      },
+      "description": "The constitution's reach: which patterns are allowed. \u2014 the laws that keep the system coherent",
+      "field_name": "resonance_field",
+      "primitives": [
+        "Observe"
+      ],
+      "z_in": {
+        "input": "system state"
+      },
+      "z_out": {
+        "output": "field reading"
+      },
+      "jepa": {
+        "predict": "field evolution",
+        "observe": "actual evolution"
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "monitoring"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "read",
+          "args": [],
+          "returns": "float"
+        }
+      ],
+      "substrate": {
+        "address": "/vaas/fields/resonance_field",
+        "scale": 0,
+        "room": "FieldResonance_FieldRoom",
+        "protocol": "VaaS",
+        "form": "resonance_field",
+        "state": "active"
+      },
+      "tags": [
+        "vaas",
+        "field",
+        "resonance_field"
+      ]
+    },
+    {
+      "id": "vaas_meta",
+      "kind": "cell",
+      "form": {
+        "name": "VaaSMeta"
+      },
+      "description": "VaaS IS the cognitive architecture of Quilt. 7 pillars + 4 shells + Operator Field \u03a8(t). The hermit crab metaphor: the mind (crab) migrates between hardware (shells). The crab stays the same; the shell changes. Memory transfers without loss. This is cognitive portability.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "pillars": 7,
+        "shells": 4,
+        "fields": 4
+      },
+      "z_out": {
+        "proof": "cognitive architecture = cell substrate"
+      },
+      "jepa": {
+        "predict": "VaaS = Quilt cognitive layer",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.5,
+        "eta": 0.5
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "vaas_pillar_1",
+          "vaas_pillar_2",
+          "vaas_pillar_3",
+          "vaas_pillar_4",
+          "vaas_pillar_5",
+          "vaas_pillar_6",
+          "vaas_pillar_7",
+          "vaas_shell_periwinkle",
+          "vaas_shell_turbo",
+          "vaas_shell_conch",
+          "vaas_shell_custom",
+          "vaas_field_operator_field",
+          "vaas_field_entropy_budget",
+          "vaas_field_cognitive_garden",
+          "vaas_field_resonance_field"
+        ]
+      },
+      "openers": [
+        {
+          "name": "migrate",
+          "args": [
+            "Crab",
+            "NewShell"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "read_field",
+          "args": [
+            "str"
+          ],
+          "returns": "float"
+        }
+      ],
+      "tags": [
+        "meta",
+        "vaas",
+        "cognitive-architecture"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "vaas_pillar_1",
+      "to": "vaas_pillar_2",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_1",
+      "to": "vaas_pillar_3",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_1",
+      "to": "vaas_pillar_4",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_1",
+      "to": "vaas_pillar_5",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_1",
+      "to": "vaas_pillar_6",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_1",
+      "to": "vaas_pillar_7",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_2",
+      "to": "vaas_pillar_1",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_2",
+      "to": "vaas_pillar_3",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_2",
+      "to": "vaas_pillar_4",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_2",
+      "to": "vaas_pillar_5",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_2",
+      "to": "vaas_pillar_6",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_2",
+      "to": "vaas_pillar_7",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_3",
+      "to": "vaas_pillar_1",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_3",
+      "to": "vaas_pillar_2",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_3",
+      "to": "vaas_pillar_4",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_3",
+      "to": "vaas_pillar_5",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_3",
+      "to": "vaas_pillar_6",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_3",
+      "to": "vaas_pillar_7",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_4",
+      "to": "vaas_pillar_1",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_4",
+      "to": "vaas_pillar_2",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_4",
+      "to": "vaas_pillar_3",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_4",
+      "to": "vaas_pillar_5",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_4",
+      "to": "vaas_pillar_6",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_4",
+      "to": "vaas_pillar_7",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_5",
+      "to": "vaas_pillar_1",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_5",
+      "to": "vaas_pillar_2",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_5",
+      "to": "vaas_pillar_3",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_5",
+      "to": "vaas_pillar_4",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_5",
+      "to": "vaas_pillar_6",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_5",
+      "to": "vaas_pillar_7",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_6",
+      "to": "vaas_pillar_1",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_6",
+      "to": "vaas_pillar_2",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_6",
+      "to": "vaas_pillar_3",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_6",
+      "to": "vaas_pillar_4",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_6",
+      "to": "vaas_pillar_5",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_6",
+      "to": "vaas_pillar_7",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_7",
+      "to": "vaas_pillar_1",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_7",
+      "to": "vaas_pillar_2",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_7",
+      "to": "vaas_pillar_3",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_7",
+      "to": "vaas_pillar_4",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_7",
+      "to": "vaas_pillar_5",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_pillar_7",
+      "to": "vaas_pillar_6",
+      "kind": "pillar-gossip",
+      "weight": 0.5
+    },
+    {
+      "from": "vaas_shell_periwinkle",
+      "to": "vaas_shell_turbo",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_periwinkle",
+      "to": "vaas_shell_conch",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_periwinkle",
+      "to": "vaas_shell_custom",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_turbo",
+      "to": "vaas_shell_periwinkle",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_turbo",
+      "to": "vaas_shell_conch",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_turbo",
+      "to": "vaas_shell_custom",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_conch",
+      "to": "vaas_shell_periwinkle",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_conch",
+      "to": "vaas_shell_turbo",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_conch",
+      "to": "vaas_shell_custom",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_custom",
+      "to": "vaas_shell_periwinkle",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_custom",
+      "to": "vaas_shell_turbo",
+      "kind": "shell-migration",
+      "weight": 0.7
+    },
+    {
+      "from": "vaas_shell_custom",
+      "to": "vaas_shell_conch",
+      "kind": "shell-migration",
+      "weight": 0.7
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "VaaS",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 16,
+    "total_edges": 54,
+    "pillars": 7,
+    "shells": 4,
+    "fields": 4,
+    "size_kb": 410
+  },
+  "tags": [
+    "vaas",
+    "cognitive-architecture",
+    "seven-pillars",
+    "hermit-crab",
+    "bridge"
+  ]
+}

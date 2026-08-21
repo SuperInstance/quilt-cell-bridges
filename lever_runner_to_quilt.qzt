@@ -1,0 +1,1851 @@
+{
+  "version": "1.0",
+  "kind": "quilt-zip-target",
+  "name": "lever-runner-to-quilt",
+  "description": "Bridge mapping lever-runner to Quilt. lever-runner is the executor substrate \u2014 the trust compiler, git-native agent, 3-gate executor.",
+  "cells": [
+    {
+      "id": "lever_gate1_rust_fastloop",
+      "kind": "cell",
+      "form": {
+        "name": "Gate1RustFastloop"
+      },
+      "description": "Template match: 'check disk' \u2192 'df -h'. 50\u00b5s. No LLM.",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/gate1_rust_fastloop",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "gate1_rust_fastloop",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "rust"
+      ]
+    },
+    {
+      "id": "lever_gate2_python_cache",
+      "kind": "cell",
+      "form": {
+        "name": "Gate2PythonCache"
+      },
+      "description": "Embedding cache: 44% hit rate. 200\u00b5s. No LLM on hit.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/gate2_python_cache",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "gate2_python_cache",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_gate3_llm_intent",
+      "kind": "cell",
+      "form": {
+        "name": "Gate3LlmIntent"
+      },
+      "description": "LLM intent extraction: 'check disk' \u2192 'show disk usage'. 500ms. 70 tokens.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "JEPA"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/gate3_llm_intent",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "gate3_llm_intent",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_trust_score",
+      "kind": "cell",
+      "form": {
+        "name": "TrustScore"
+      },
+      "description": "Per-command trust score (0-100). Auto-promotes on success, demotes on failure.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/trust_score",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "trust_score",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_sandbox_exec",
+      "kind": "cell",
+      "form": {
+        "name": "SandboxExec"
+      },
+      "description": "Per-session sandbox in /tmp/lever-runner/<id>/. Hard timeout 30s. No secrets.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "GC"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/sandbox_exec",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "sandbox_exec",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_skill_pack",
+      "kind": "cell",
+      "form": {
+        "name": "SkillPack"
+      },
+      "description": "JSONL of commands. Version-controlled. Forkable. Auditable.",
+      "language": "jsonl",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/skill_pack",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "skill_pack",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "jsonl"
+      ]
+    },
+    {
+      "id": "lever_export_import",
+      "kind": "cell",
+      "form": {
+        "name": "ExportImport"
+      },
+      "description": "lever export > skills.jsonl. lever import skills.jsonl.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/export_import",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "export_import",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_pincher_nail",
+      "kind": "cell",
+      "form": {
+        "name": "PincherNail"
+      },
+      "description": "Export for pincherOS. .nail files. Agent state migration.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/pincher_nail",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "pincher_nail",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_surface_cli",
+      "kind": "cell",
+      "form": {
+        "name": "SurfaceCli"
+      },
+      "description": "CLI: 'lever check disk'. Bash/zsh. Most common surface.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/surface_cli",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "surface_cli",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_surface_telegram",
+      "kind": "cell",
+      "form": {
+        "name": "SurfaceTelegram"
+      },
+      "description": "Telegram bot: '/do check disk'. /teach to add.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/surface_telegram",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "surface_telegram",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_surface_http",
+      "kind": "cell",
+      "form": {
+        "name": "SurfaceHttp"
+      },
+      "description": "HTTP API: POST /run. Port 8765. JSON in/out.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/surface_http",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "surface_http",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_surface_tui",
+      "kind": "cell",
+      "form": {
+        "name": "SurfaceTui"
+      },
+      "description": "TUI: 'lever tui'. v0.5 planned. Terminal UI.",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/surface_tui",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "surface_tui",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "rust"
+      ]
+    },
+    {
+      "id": "lever_surface_web",
+      "kind": "cell",
+      "form": {
+        "name": "SurfaceWeb"
+      },
+      "description": "Web UI: v0.6 planned. Browser-based dashboard.",
+      "language": "typescript",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/surface_web",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "surface_web",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "typescript"
+      ]
+    },
+    {
+      "id": "lever_surface_gradio",
+      "kind": "cell",
+      "form": {
+        "name": "SurfaceGradio"
+      },
+      "description": "Gradio: 'docker compose up'. Containerized UI.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Send",
+        "Receive",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/surface_gradio",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "surface_gradio",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_auto_promote",
+      "kind": "cell",
+      "form": {
+        "name": "AutoPromote"
+      },
+      "description": "Hourly cron. Promote winners (20+ successes), surface failures.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/auto_promote",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "auto_promote",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_passthrough_mode",
+      "kind": "cell",
+      "form": {
+        "name": "PassthroughMode"
+      },
+      "description": "Zero LLM. Words \u2192 search key. $0/month. Offline.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/passthrough_mode",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "passthrough_mode",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_local_llm",
+      "kind": "cell",
+      "form": {
+        "name": "LocalLlm"
+      },
+      "description": "Ollama. llama3.1:8b-instruct-q4_K_M. Local inference.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/local_llm",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "local_llm",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_cloud_llm",
+      "kind": "cell",
+      "form": {
+        "name": "CloudLlm"
+      },
+      "description": "OpenAI/Anthropic. Highest accuracy. Pay per token.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe",
+        "Mutate"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/cloud_llm",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "cloud_llm",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_builtin_67",
+      "kind": "cell",
+      "form": {
+        "name": "Builtin67"
+      },
+      "description": "67 built-in commands seeded on first run.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/builtin_67",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "builtin_67",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_sister_pincherOS",
+      "kind": "cell",
+      "form": {
+        "name": "SisterPincheros"
+      },
+      "description": "pincherOS \u2014 agent runtime with reflex caching.",
+      "language": "rust",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/sister_pincherOS",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "sister_pincherOS",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "rust"
+      ]
+    },
+    {
+      "id": "lever_sister_tile_compiler",
+      "kind": "cell",
+      "form": {
+        "name": "SisterTileCompiler"
+      },
+      "description": "tile-compiler \u2014 strategy compilation (zero-dep).",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/sister_tile_compiler",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "sister_tile_compiler",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_sister_zeroclaw_arena",
+      "kind": "cell",
+      "form": {
+        "name": "SisterZeroclawArena"
+      },
+      "description": "zeroclaw-arena \u2014 self-improving game agents.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/sister_zeroclaw_arena",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "sister_zeroclaw_arena",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_sister_PLATO",
+      "kind": "cell",
+      "form": {
+        "name": "SisterPlato"
+      },
+      "description": "PLATO \u2014 orchestration, distillation, rooms.",
+      "language": "python",
+      "primitives": [
+        "Spawn",
+        "Observe"
+      ],
+      "z_in": {
+        "input": "user intent phrase"
+      },
+      "z_out": {
+        "output": "shell command result"
+      },
+      "jepa": {
+        "predict": "intent \u2192 command",
+        "observe": "actual command"
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "vibe": {
+        "position": 0,
+        "velocity": 0,
+        "acceleration": 0
+      },
+      "gc": {
+        "phase": "executing"
+      },
+      "murmur": {},
+      "graph": {
+        "parents": [],
+        "children": []
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str",
+            "str"
+          ],
+          "returns": "Unit"
+        }
+      ],
+      "substrate": {
+        "address": "/lever-runner/sister_PLATO",
+        "scale": 0,
+        "room": "ExecutionRoom",
+        "protocol": "Shell",
+        "form": "sister_PLATO",
+        "state": "ready"
+      },
+      "tags": [
+        "lever-runner",
+        "executor",
+        "trust",
+        "python"
+      ]
+    },
+    {
+      "id": "lever_runner_meta",
+      "kind": "cell",
+      "form": {
+        "name": "LeverRunnerMeta"
+      },
+      "description": "lever-runner IS the executor substrate of Quilt. The trust compiler: teach once, run forever. The 3 gates map to the conservation law (\u03b3 = work done, \u03b7 = tokens spent). 70 tokens/query (vs 2000-5000 for competitors). The cell at level 3 (harness) needs an executor; lever-runner is that executor.",
+      "primitives": [
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe",
+        "Observe"
+      ],
+      "z_in": {
+        "trust_compiler": "yes",
+        "git_native": "yes",
+        "passthrough": "yes"
+      },
+      "z_out": {
+        "proof": "executor = cell substrate"
+      },
+      "jepa": {
+        "predict": "lever = executor",
+        "verified": true
+      },
+      "double_entry": {
+        "gamma": 0.7,
+        "eta": 0.3
+      },
+      "gc": {
+        "phase": "eternal"
+      },
+      "murmur": {},
+      "graph": {
+        "children": [
+          "lever_gate1_rust_fastloop",
+          "lever_gate2_python_cache",
+          "lever_gate3_llm_intent",
+          "lever_trust_score",
+          "lever_sandbox_exec",
+          "lever_skill_pack",
+          "lever_export_import",
+          "lever_pincher_nail",
+          "lever_surface_cli",
+          "lever_surface_telegram",
+          "lever_surface_http",
+          "lever_surface_tui",
+          "lever_surface_web",
+          "lever_surface_gradio",
+          "lever_auto_promote",
+          "lever_passthrough_mode",
+          "lever_local_llm",
+          "lever_cloud_llm",
+          "lever_builtin_67",
+          "lever_sister_pincherOS",
+          "lever_sister_tile_compiler",
+          "lever_sister_zeroclaw_arena",
+          "lever_sister_PLATO"
+        ]
+      },
+      "openers": [
+        {
+          "name": "run",
+          "args": [
+            "str"
+          ],
+          "returns": "Result"
+        },
+        {
+          "name": "teach",
+          "args": [
+            "str"
+          ],
+          "returns": "Unit"
+        },
+        {
+          "name": "trust",
+          "args": [
+            "str"
+          ],
+          "returns": "int"
+        }
+      ],
+      "tags": [
+        "meta",
+        "executor",
+        "lever-runner"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "lever_gate1_rust_fastloop",
+      "to": "lever_sandbox_exec",
+      "kind": "executes",
+      "weight": 1.0
+    },
+    {
+      "from": "lever_gate2_python_cache",
+      "to": "lever_sandbox_exec",
+      "kind": "executes",
+      "weight": 1.0
+    },
+    {
+      "from": "lever_gate3_llm_intent",
+      "to": "lever_sandbox_exec",
+      "kind": "executes",
+      "weight": 1.0
+    },
+    {
+      "from": "lever_surface_cli",
+      "to": "lever_gate1_rust_fastloop",
+      "kind": "calls",
+      "weight": 0.8
+    },
+    {
+      "from": "lever_surface_telegram",
+      "to": "lever_gate1_rust_fastloop",
+      "kind": "calls",
+      "weight": 0.8
+    },
+    {
+      "from": "lever_surface_http",
+      "to": "lever_gate1_rust_fastloop",
+      "kind": "calls",
+      "weight": 0.8
+    },
+    {
+      "from": "lever_surface_tui",
+      "to": "lever_gate1_rust_fastloop",
+      "kind": "calls",
+      "weight": 0.8
+    },
+    {
+      "from": "lever_surface_web",
+      "to": "lever_gate1_rust_fastloop",
+      "kind": "calls",
+      "weight": 0.8
+    },
+    {
+      "from": "lever_surface_gradio",
+      "to": "lever_gate1_rust_fastloop",
+      "kind": "calls",
+      "weight": 0.8
+    }
+  ],
+  "external_refs": [
+    {
+      "kind": "github-repo",
+      "name": "lever-runner",
+      "org": "SuperInstance"
+    }
+  ],
+  "stats": {
+    "total_cells": 24,
+    "total_edges": 9,
+    "modules": 23,
+    "gates": 3,
+    "tokens_per_query": 70,
+    "competitor_avg_tokens": 3500,
+    "tests_passing": 160
+  },
+  "tags": [
+    "lever-runner",
+    "executor",
+    "trust",
+    "git-native",
+    "bridge"
+  ]
+}
