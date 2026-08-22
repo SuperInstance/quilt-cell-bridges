@@ -26,7 +26,7 @@ Map:
 """
 
 import math
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Callable
 
 
 class Cell:
