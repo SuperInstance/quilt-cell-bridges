@@ -1,0 +1,2255 @@
+{
+  "schema": "quilt-zip-target/v1",
+  "metadata": {
+    "name": "Velato-Penrose Quilt \u2014 the music IS the cell graph",
+    "description": "Unified view of 12 Penrose-family rooms with Velato phrase in each",
+    "velato_mode": "on",
+    "conservation": "\u03b3+\u03b7=1",
+    "shape": "T^4 with \u03b8=(\u221a5-1)/2"
+  },
+  "rooms": [
+    {
+      "id": "penrose_memory",
+      "name": "\ud83d\udd2f penrose-memory (Rust + Python)",
+      "velato_root": 60,
+      "description": "Aperiodic memory palace with golden-ratio hashing and 3-coloring",
+      "velato_phrase": [
+        60,
+        62,
+        64,
+        67,
+        65,
+        64,
+        62,
+        60
+      ]
+    },
+    {
+      "id": "penrose_lattice",
+      "name": "\ud83d\udd2f penrose-lattice (Rust)",
+      "velato_root": 60,
+      "description": "Penrose tilings as spectral graphs with Fibonacci substitution",
+      "velato_phrase": [
+        60,
+        64,
+        67,
+        72,
+        67,
+        64,
+        60
+      ]
+    },
+    {
+      "id": "lau_penrose",
+      "name": "\ud83d\udd2f lau-penrose (Rust)",
+      "velato_root": 65,
+      "description": "Base Penrose tiling implementation with golden ratio geometry",
+      "velato_phrase": [
+        65,
+        69,
+        72,
+        77,
+        72,
+        69,
+        65
+      ]
+    },
+    {
+      "id": "lau_twistor_agents",
+      "name": "\ud83d\udd2f lau-twistor-agents (Makefile)",
+      "velato_root": 67,
+      "description": "Penrose twistor theory applied to multi-agent systems",
+      "velato_phrase": [
+        67,
+        71,
+        74,
+        79,
+        74,
+        71,
+        67
+      ]
+    },
+    {
+      "id": "tensor_penrose",
+      "name": "\ud83d\udd2f tensor-penrose (Python)",
+      "velato_root": 60,
+      "description": "Tensor operations on Penrose tilings",
+      "velato_phrase": [
+        60,
+        64,
+        67,
+        64,
+        60
+      ]
+    },
+    {
+      "id": "flux_tensor_midi",
+      "name": "\ud83d\udd2f flux-tensor-midi (6 langs)",
+      "velato_root": 62,
+      "description": "4D tensor representation of MIDI events",
+      "velato_phrase": [
+        62,
+        65,
+        69,
+        72,
+        69,
+        65,
+        62
+      ]
+    },
+    {
+      "id": "plato_midi_bridge",
+      "name": "\ud83d\udd2f plato-midi-bridge (Rust)",
+      "velato_root": 64,
+      "description": "PLATO rooms as musicians \u2014 flux-tensor-midi to fleet tiles",
+      "velato_phrase": [
+        64,
+        67,
+        71,
+        74,
+        71,
+        67,
+        64
+      ]
+    },
+    {
+      "id": "counterpoint_engine",
+      "name": "\ud83d\udd2f counterpoint-engine",
+      "velato_root": 60,
+      "description": "Species counterpoint as constraint satisfaction, Laman rigid",
+      "velato_phrase": [
+        60,
+        67,
+        64,
+        72,
+        64,
+        67,
+        60
+      ]
+    },
+    {
+      "id": "holonomy_harmony",
+      "name": "\ud83d\udd2f holonomy-harmony",
+      "velato_root": 65,
+      "description": "Laman-rigid musical graph, zero-holonomy in closed loops",
+      "velato_phrase": [
+        65,
+        72,
+        69,
+        77,
+        69,
+        72,
+        65
+      ]
+    },
+    {
+      "id": "spectral_music_v2",
+      "name": "\ud83d\udd2f spectral-music-v2",
+      "velato_root": 67,
+      "description": "Spectral triples for music. CR = \u03b3+\u03b7 = 1",
+      "velato_phrase": [
+        67,
+        74,
+        71,
+        79,
+        71,
+        74,
+        67
+      ]
+    },
+    {
+      "id": "topo_sonata",
+      "name": "\ud83d\udd2f topo-sonata",
+      "velato_root": 60,
+      "description": "Chord progressions as filtered cell graphs",
+      "velato_phrase": [
+        60,
+        65,
+        67,
+        72,
+        67,
+        65,
+        60
+      ]
+    },
+    {
+      "id": "velato_quilt",
+      "name": "\ud83d\udd2f quilt-velato (NEW)",
+      "velato_root": 60,
+      "description": "The Velato \u2192 Penrose \u2192 Quilt compiler. Music IS the cell graph.",
+      "velato_phrase": [
+        60,
+        62,
+        64,
+        67,
+        64,
+        62,
+        60
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "id": "r_penrose_memory",
+      "kind": "cell",
+      "value": "\ud83d\udd2f penrose-memory (Rust + Python)",
+      "room_id": "penrose_memory",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0001",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0002",
+      "kind": "cell",
+      "value": 62,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 2,
+      "velato_primitive": "Z_in",
+      "primitives": {
+        "Z_in": {
+          "data": {
+            "value": 0.4881889763779528
+          }
+        }
+      }
+    },
+    {
+      "id": "c_0003",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0004",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0005",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 5,
+      "velato_primitive": "DoubleEntry",
+      "primitives": {
+        "DoubleEntry": {
+          "gamma": 0.5118110236220472,
+          "eta": 0.4881889763779528
+        }
+      }
+    },
+    {
+      "id": "c_0006",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0007",
+      "kind": "cell",
+      "value": 62,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 2,
+      "velato_primitive": "Z_in",
+      "primitives": {
+        "Z_in": {
+          "data": {
+            "value": 0.4881889763779528
+          }
+        }
+      }
+    },
+    {
+      "id": "c_0008",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "penrose_memory",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_penrose_lattice",
+      "kind": "cell",
+      "value": "\ud83d\udd2f penrose-lattice (Rust)",
+      "room_id": "penrose_lattice",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0010",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0011",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0012",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0013",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0014",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0015",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0016",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "penrose_lattice",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_lau_penrose",
+      "kind": "cell",
+      "value": "\ud83d\udd2f lau-penrose (Rust)",
+      "room_id": "lau_penrose",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 65,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0018",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 65,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0019",
+      "kind": "cell",
+      "value": 69,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5433070866141733
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0020",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0021",
+      "kind": "cell",
+      "value": 77,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 77,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0022",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0023",
+      "kind": "cell",
+      "value": 69,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5433070866141733
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0024",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "lau_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 65,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_lau_twistor_agents",
+      "kind": "cell",
+      "value": "\ud83d\udd2f lau-twistor-agents (Makefile)",
+      "room_id": "lau_twistor_agents",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0026",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0027",
+      "kind": "cell",
+      "value": 71,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5590551181102362
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0028",
+      "kind": "cell",
+      "value": 74,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 74,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0029",
+      "kind": "cell",
+      "value": 79,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 79,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0030",
+      "kind": "cell",
+      "value": 74,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 74,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0031",
+      "kind": "cell",
+      "value": 71,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5590551181102362
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0032",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "lau_twistor_agents",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_tensor_penrose",
+      "kind": "cell",
+      "value": "\ud83d\udd2f tensor-penrose (Python)",
+      "room_id": "tensor_penrose",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0034",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "tensor_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0035",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "tensor_penrose",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0036",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "tensor_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0037",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "tensor_penrose",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0038",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "tensor_penrose",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_flux_tensor_midi",
+      "kind": "cell",
+      "value": "\ud83d\udd2f flux-tensor-midi (6 langs)",
+      "room_id": "flux_tensor_midi",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 62,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0040",
+      "kind": "cell",
+      "value": 62,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 62,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0041",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 3,
+      "velato_primitive": "JEPA_b",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5118110236220472
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0042",
+      "kind": "cell",
+      "value": 69,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 69,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0043",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 10,
+      "velato_primitive": "Graph",
+      "primitives": {
+        "Graph": {
+          "parents": [],
+          "children": []
+        }
+      }
+    },
+    {
+      "id": "c_0044",
+      "kind": "cell",
+      "value": 69,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 69,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0045",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 3,
+      "velato_primitive": "JEPA_b",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5118110236220472
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0046",
+      "kind": "cell",
+      "value": 62,
+      "room_id": "flux_tensor_midi",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 62,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_plato_midi_bridge",
+      "kind": "cell",
+      "value": "\ud83d\udd2f plato-midi-bridge (Rust)",
+      "room_id": "plato_midi_bridge",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 64,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0048",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 64,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0049",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 3,
+      "velato_primitive": "JEPA_b",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5275590551181102
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0050",
+      "kind": "cell",
+      "value": 71,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 71,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0051",
+      "kind": "cell",
+      "value": 74,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 10,
+      "velato_primitive": "Graph",
+      "primitives": {
+        "Graph": {
+          "parents": [],
+          "children": []
+        }
+      }
+    },
+    {
+      "id": "c_0052",
+      "kind": "cell",
+      "value": 71,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 71,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0053",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 3,
+      "velato_primitive": "JEPA_b",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5275590551181102
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0054",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "plato_midi_bridge",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 64,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_counterpoint_engine",
+      "kind": "cell",
+      "value": "\ud83d\udd2f counterpoint-engine",
+      "room_id": "counterpoint_engine",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0056",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0057",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0058",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0059",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0060",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0061",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0062",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "counterpoint_engine",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_holonomy_harmony",
+      "kind": "cell",
+      "value": "\ud83d\udd2f holonomy-harmony",
+      "room_id": "holonomy_harmony",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 65,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0064",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 65,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0065",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0066",
+      "kind": "cell",
+      "value": 69,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5433070866141733
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0067",
+      "kind": "cell",
+      "value": 77,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 77,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0068",
+      "kind": "cell",
+      "value": 69,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5433070866141733
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0069",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0070",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "holonomy_harmony",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 65,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_spectral_music_v2",
+      "kind": "cell",
+      "value": "\ud83d\udd2f spectral-music-v2",
+      "room_id": "spectral_music_v2",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0072",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0073",
+      "kind": "cell",
+      "value": 74,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 74,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0074",
+      "kind": "cell",
+      "value": 71,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5590551181102362
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0075",
+      "kind": "cell",
+      "value": 79,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 79,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0076",
+      "kind": "cell",
+      "value": 71,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5590551181102362
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0077",
+      "kind": "cell",
+      "value": 74,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 74,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0078",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "spectral_music_v2",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_topo_sonata",
+      "kind": "cell",
+      "value": "\ud83d\udd2f topo-sonata",
+      "room_id": "topo_sonata",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0080",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0081",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 5,
+      "velato_primitive": "DoubleEntry",
+      "primitives": {
+        "DoubleEntry": {
+          "gamma": 0.5118110236220472,
+          "eta": 0.4881889763779528
+        }
+      }
+    },
+    {
+      "id": "c_0082",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0083",
+      "kind": "cell",
+      "value": 72,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 72,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0084",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0085",
+      "kind": "cell",
+      "value": 65,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 5,
+      "velato_primitive": "DoubleEntry",
+      "primitives": {
+        "DoubleEntry": {
+          "gamma": 0.5118110236220472,
+          "eta": 0.4881889763779528
+        }
+      }
+    },
+    {
+      "id": "c_0086",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "topo_sonata",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "r_velato_quilt",
+      "kind": "cell",
+      "value": "\ud83d\udd2f quilt-velato (NEW)",
+      "room_id": "velato_quilt",
+      "is_room": true,
+      "color": "witness",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0088",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    },
+    {
+      "id": "c_0089",
+      "kind": "cell",
+      "value": 62,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 2,
+      "velato_primitive": "Z_in",
+      "primitives": {
+        "Z_in": {
+          "data": {
+            "value": 0.4881889763779528
+          }
+        }
+      }
+    },
+    {
+      "id": "c_0090",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0091",
+      "kind": "cell",
+      "value": 67,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 7,
+      "velato_primitive": "Vibe",
+      "primitives": {
+        "Vibe": {
+          "position": 67,
+          "velocity": 1.0,
+          "damping": 0.95
+        }
+      }
+    },
+    {
+      "id": "c_0092",
+      "kind": "cell",
+      "value": 64,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 4,
+      "velato_primitive": "JEPA",
+      "primitives": {
+        "JEPA": {
+          "history": [
+            0.5039370078740157
+          ]
+        }
+      }
+    },
+    {
+      "id": "c_0093",
+      "kind": "cell",
+      "value": 62,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "witness",
+      "velato_interval": 2,
+      "velato_primitive": "Z_in",
+      "primitives": {
+        "Z_in": {
+          "data": {
+            "value": 0.4881889763779528
+          }
+        }
+      }
+    },
+    {
+      "id": "c_0094",
+      "kind": "cell",
+      "value": 60,
+      "room_id": "velato_quilt",
+      "is_room": false,
+      "color": "creation",
+      "velato_interval": 0,
+      "velato_primitive": "ROOT",
+      "primitives": {
+        "Vibe": {
+          "position": 60,
+          "velocity": 1.0
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "r_penrose_memory",
+      "to": "c_0001",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0001",
+      "to": "c_0002",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0002",
+      "to": "c_0003",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0003",
+      "to": "c_0004",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0004",
+      "to": "c_0005",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0005",
+      "to": "c_0006",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0006",
+      "to": "c_0007",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0007",
+      "to": "c_0008",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_penrose_lattice",
+      "to": "c_0010",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0010",
+      "to": "c_0011",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0011",
+      "to": "c_0012",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0012",
+      "to": "c_0013",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0013",
+      "to": "c_0014",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0014",
+      "to": "c_0015",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0015",
+      "to": "c_0016",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_lau_penrose",
+      "to": "c_0018",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0018",
+      "to": "c_0019",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0019",
+      "to": "c_0020",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0020",
+      "to": "c_0021",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0021",
+      "to": "c_0022",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0022",
+      "to": "c_0023",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0023",
+      "to": "c_0024",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_lau_twistor_agents",
+      "to": "c_0026",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0026",
+      "to": "c_0027",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0027",
+      "to": "c_0028",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0028",
+      "to": "c_0029",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0029",
+      "to": "c_0030",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0030",
+      "to": "c_0031",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0031",
+      "to": "c_0032",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_tensor_penrose",
+      "to": "c_0034",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0034",
+      "to": "c_0035",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0035",
+      "to": "c_0036",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0036",
+      "to": "c_0037",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0037",
+      "to": "c_0038",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_flux_tensor_midi",
+      "to": "c_0040",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0040",
+      "to": "c_0041",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0041",
+      "to": "c_0042",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0042",
+      "to": "c_0043",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0043",
+      "to": "c_0044",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0044",
+      "to": "c_0045",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0045",
+      "to": "c_0046",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_plato_midi_bridge",
+      "to": "c_0048",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0048",
+      "to": "c_0049",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0049",
+      "to": "c_0050",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0050",
+      "to": "c_0051",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0051",
+      "to": "c_0052",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0052",
+      "to": "c_0053",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0053",
+      "to": "c_0054",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_counterpoint_engine",
+      "to": "c_0056",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0056",
+      "to": "c_0057",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0057",
+      "to": "c_0058",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0058",
+      "to": "c_0059",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0059",
+      "to": "c_0060",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0060",
+      "to": "c_0061",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0061",
+      "to": "c_0062",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_holonomy_harmony",
+      "to": "c_0064",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0064",
+      "to": "c_0065",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0065",
+      "to": "c_0066",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0066",
+      "to": "c_0067",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0067",
+      "to": "c_0068",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0068",
+      "to": "c_0069",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0069",
+      "to": "c_0070",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_spectral_music_v2",
+      "to": "c_0072",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0072",
+      "to": "c_0073",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0073",
+      "to": "c_0074",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0074",
+      "to": "c_0075",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0075",
+      "to": "c_0076",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0076",
+      "to": "c_0077",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0077",
+      "to": "c_0078",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_topo_sonata",
+      "to": "c_0080",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0080",
+      "to": "c_0081",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0081",
+      "to": "c_0082",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0082",
+      "to": "c_0083",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0083",
+      "to": "c_0084",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0084",
+      "to": "c_0085",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0085",
+      "to": "c_0086",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "r_velato_quilt",
+      "to": "c_0088",
+      "kind": "phrase_start",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0088",
+      "to": "c_0089",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0089",
+      "to": "c_0090",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0090",
+      "to": "c_0091",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0091",
+      "to": "c_0092",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0092",
+      "to": "c_0093",
+      "kind": "phrase_next",
+      "weight": 1.0
+    },
+    {
+      "from": "c_0093",
+      "to": "c_0094",
+      "kind": "phrase_next",
+      "weight": 1.0
+    }
+  ],
+  "stats": {
+    "total_cells": 95,
+    "total_edges": 83,
+    "total_rooms": 12,
+    "colors": {
+      "creation": 54,
+      "entropy": 0,
+      "witness": 29
+    },
+    "primitives_used": {
+      "Vibe": 64,
+      "Z_in": 4,
+      "JEPA": 22,
+      "DoubleEntry": 3,
+      "Graph": 2
+    },
+    "beta_0": 12,
+    "beta_1": 0
+  }
+}
