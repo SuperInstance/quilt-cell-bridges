@@ -4,7 +4,7 @@ These bridges connect Quilt to the larger **SuperInstance** ecosystem — 1,431+
 
 The Quilt and the SuperInstance Fleet are the same system seen from two angles. Quilt is the cellular formalism. SuperInstance is the fleet.
 
-## Bridges (18)
+## Bridges (22)
 
 ### Foundational (6 frontier frameworks)
 
@@ -44,28 +44,40 @@ The Quilt and the SuperInstance Fleet are the same system seen from two angles. 
 | 17 | **witness_topology_to_quilt.py** | Witness complexes (β₁ = Quilt invariant) ↔ Quilt | [witness-topology](https://github.com/SuperInstance/witness-topology) |
 | 18 | **lau_logic_foundations_to_quilt.py** | Logic library (AND = DoubleEntry) ↔ Quilt | [lau-logic-foundations](https://github.com/SuperInstance/lau-logic-foundations) |
 
-## The 7 Key Discoveries
+### Category theory and constraints (4)
 
-### 1. "vibe" IS a Quilt primitive
-The `lau-vibe-compiler` compiles natural language to PLATO ops. "Vibe" is **literally** a Quilt primitive (state: position, velocity, acceleration). Bridge 13.
+| # | Bridge | Maps | Source |
+|---|---|---|---|
+| 19 | **constraint_theory_to_quilt.py** | Eisenstein lattices, PLATO tiles ↔ Quilt | [constraint-theory-py](https://github.com/SuperInstance/constraint-theory-py) |
+| 20 | **fleet_constraint_to_quilt.py** | H¹ emergence (sheaf cohomology) ↔ β₁ | [fleet-constraint](https://github.com/SuperInstance/fleet-constraint) |
+| 21 | **categorical_agents_to_quilt.py** | Agents as objects in a category ↔ Quilt cells | [categorical-agents](https://github.com/SuperInstance/categorical-agents) |
+| 22 | **kan_extension_to_quilt.py** | Kan extensions (Lan = GC, Ran = JEPA) ↔ Quilt | [kan-extension](https://github.com/SuperInstance/kan-extension) |
 
-### 2. A "build" IS a cell graph
-`forgemaster` produces a build. In Quilt, a build is **literally** a cell graph. The forgemaster's output is a Quilt sheet. Bridge 14.
+## The 8 Key Discoveries
 
-### 3. DPLL IS a Quilt runtime
-The `sat-solver` DPLL algorithm = unit propagation (JEPA) + pure literal elimination (Vibe) + clause learning (Graph) + backtracking (GC). Bridge 11.
+### 1. "vibe" IS a Quilt primitive (Bridge 13)
+The `lau-vibe-compiler` compiles natural language to PLATO ops. "Vibe" is **literally** a Quilt primitive (state: position, velocity, acceleration).
 
-### 4. Theory combination IS Murmur
-The `smt-core` theory combination (Nelson-Oppen) propagates equalities between theories. This is **literally** Murmur. Bridge 12.
+### 2. A "build" IS a cell graph (Bridge 14)
+`forgemaster` produces a build. In Quilt, a build is **literally** a cell graph.
 
-### 5. State IS Vibe
-A Turing machine state is a Quilt Vibe (position, velocity, acceleration). Transitions are Murmur messages. Halt is GC. Bridge 15.
+### 3. DPLL IS a Quilt runtime (Bridge 11)
+The `sat-solver` DPLL algorithm = unit propagation (JEPA) + pure literal elimination (Vibe) + clause learning (Graph) + backtracking (GC).
 
-### 6. Pressure IS sum of live Vibe
-A register file's pressure is the count of allocated registers, each a Vibe. Spill is Vibe deceleration. Bridge 16.
+### 4. Theory combination IS Murmur (Bridge 12)
+Nelson-Oppen theory combination IS Murmur — inter-theory message passing.
 
-### 7. Logic IS a Quilt runtime
-Propositions are cells. AND is DoubleEntry (γ+η combined). OR is Murmur (at least one). Quantifiers are Graph. Curry-Howard is Murmur. Bridge 18.
+### 5. State IS Vibe (Bridge 15)
+A Turing machine state is a Quilt Vibe. Transitions are Murmur. Halt is GC.
+
+### 6. H¹ IS β₁ (Bridge 20 + 17)
+fleet-constraint's H¹ emergence detection IS witness-topology's β₁ IS the Quilt cell graph. Same thing.
+
+### 7. A Kan extension IS the act of looking (Bridge 22)
+Extending a functor along another IS the watch projecting the cell graph. Left Kan = GC, Right Kan = JEPA.
+
+### 8. H = η by construction (Bridge 2)
+The SuperInstance's `γ+H=C` and Quilt's `γ+η=C` are the same law. H (entropy) = η (liquid intelligence).
 
 ## The Meta-Pattern
 
@@ -73,10 +85,21 @@ Every bridge in the SuperInstance fleet maps to the same 8 Quilt primitives: Z_i
 
 The bridges are the same equations in different clothes.
 
+## The Trajectory
+
+| Round | Bridges | Key insight |
+|---|---|---|
+| 1 | 6 | Foundational: PLATO, sunset, hermit crab |
+| 2 | 10 | Production: murmur, spreadsheet, noether |
+| 3 | 14 | Compilers: sat, smt, vibe, forge |
+| 4 | 18 | Foundations: turing, register, witness, logic |
+| 5 | 22 | Category: constraints, sheaf, categorical, kan |
+
+The number doesn't matter. The trajectory does. The bridges are the angles.
+
 ## See also
 
 - [Quilt README: Synergies section](https://github.com/SuperInstance/quilt#synergies-with-the-superinstance-fleet)
 - [Paper 77: The Quilt and the SuperInstance Fleet](https://github.com/SuperInstance/quilt/blob/main/papers/paper-77-quilt-superinstance.md)
 - [superinstance-spreadsheet live](https://spreadsheet-moment.pages.dev)
-- [Ai-Writings 42: The Two Maps of the Same Ocean](https://github.com/SuperInstance/AI-Writings)
 - [Ai-Writings 48: The 18 Bridges](https://github.com/SuperInstance/AI-Writings/blob/master/the-18-bridges.md)
