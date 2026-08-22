@@ -8,7 +8,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-green)](https://python.org)
-[![Bridges](https://img.shields.io/badge/bridges-50-brightgreen)](docs/bridge-catalog.md)
+[![Bridges](https://img.shields.io/badge/bridges-66-brightgreen)](docs/bridge-catalog.md)
 [![Sheets](https://img.shields.io/badge/.qzt-sheets-17-orange)](docs/architecture.md)
 [![Quilt](https://img.shields.io/badge/Quilt-cell%20model-3178c6)](https://github.com/SuperInstance/quilt)
 
