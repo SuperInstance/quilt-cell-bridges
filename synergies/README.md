@@ -4,9 +4,25 @@ These bridges connect Quilt to the larger **SuperInstance** ecosystem — 1,431+
 
 The Quilt and the SuperInstance Fleet are the same system seen from two angles. Quilt is the cellular formalism. SuperInstance is the fleet. They share the same conservation law, the same room abstraction, the same inter-agent protocol, the same A2A bridge, the same agent lifecycle, the same hermit crab principle, the same multi-layer reasoning, the same spectral methods, and the same address-as-identity principle.
 
-## Bridges
+## Bridges (6)
 
-- **i2i_to_quilt.py** — I2I (Iron-to-Iron) bottles ↔ Quilt cells. I2I is the SuperInstance's inter-agent protocol. With this bridge, every I2I bottle becomes a Quilt cell, and every Quilt cell can be exported as an I2I bottle. Round-trip preserves intent, confidence, vessel, parent, and tags.
+| Bridge | Maps | Source |
+|---|---|---|
+| **i2i_to_quilt.py** | I2I bottles ↔ Quilt cells | [a2a-adapter](https://github.com/SuperInstance/a2a-adapter) |
+| **conservation_to_quilt.py** | γ+H=C ↔ γ+η=C (proves H = η) | [01-conservation-law-of-intelligence.md](https://github.com/SuperInstance/SuperInstance-papers/blob/main/01-conservation-law-of-intelligence.md) |
+| **plato_to_quilt.py** | PLATO rooms ↔ Quilt rooms | [plato-portal](https://github.com/SuperInstance/plato-portal) |
+| **sunset_to_quilt.py** | sunset-ecosystem (breed/vote/sunset/seed) ↔ Vibe+GC | [sunset-ecosystem](https://github.com/SuperInstance/sunset-ecosystem) |
+| **hermit_crab_to_quilt.py** | Hermit Crab Protocol (agent ⊂ harness ⊂ room ⊂ SuperInstance) ↔ cell evolution | [03-hermit-crab-protocol.md](https://github.com/SuperInstance/SuperInstance-papers/blob/main/03-hermit-crab-protocol.md) |
+| **spectral_to_quilt.py** | spectral-fleet (eigenvalue centrality) ↔ Graph primitive | [spectral-fleet](https://github.com/SuperInstance/SuperInstance-papers) |
+
+## The Conservation Law Bridge (key result)
+
+`conservation_to_quilt.py` proves that the SuperInstance's γ+H=C and Quilt's γ+η=C are **the same law**:
+- γ (gamma) = productive energy / crystallized intelligence
+- H (entropy) in SuperInstance = η (liquid intelligence) in Quilt
+- C (capacity / budget) is the same constant
+
+The bridge even compares the paper's quadratic conservation formula (which introduces a small error term) to the linear form, and shows that only the linear form is exactly conserved. Quilt uses the linear form. So does the conservation-law-rs crate. They are consistent.
 
 ## See also
 
@@ -15,4 +31,5 @@ The Quilt and the SuperInstance Fleet are the same system seen from two angles. 
 - [SuperInstance main repo](https://github.com/SuperInstance/SuperInstance)
 - [a2a-adapter](https://github.com/SuperInstance/a2a-adapter) — the parallel A2A bridge
 - [sunset-ecosystem](https://github.com/SuperInstance/sunset-ecosystem) — the parallel agent lifecycle
-- [SuperInstance-papers/01](https://github.com/SuperInstance/SuperInstance-papers/blob/main/01-conservation-law-of-intelligence.md) — the parallel conservation law paper
+- [SuperInstance-papers](https://github.com/SuperInstance/SuperInstance-papers) — the parallel research
+- [Ai-Writings 42: The Two Maps of the Same Ocean](https://github.com/SuperInstance/AI-Writings)
